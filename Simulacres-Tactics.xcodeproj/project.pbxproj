@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E4501B1E16976391005D2EB3 /* GameStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B1D16976391005D2EB3 /* GameStatusManager.m */; };
+		E4501B2216976566005D2EB3 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B2116976566005D2EB3 /* GameController.m */; };
 		E4A95BE8169621F000E29C68 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95BE7169621F000E29C68 /* MainMenuLayer.m */; };
 		E4A95D31169652E600E29C68 /* AboutMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D30169652E600E29C68 /* AboutMenuLayer.m */; };
 		E4A95D3C16968D1B00E29C68 /* PlayMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D3B16968D1B00E29C68 /* PlayMenuLayer.m */; };
@@ -200,6 +201,8 @@
 /* Begin PBXFileReference section */
 		E4501B1C16976391005D2EB3 /* GameStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatusManager.h; sourceTree = "<group>"; };
 		E4501B1D16976391005D2EB3 /* GameStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatusManager.m; sourceTree = "<group>"; };
+		E4501B2016976566005D2EB3 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		E4501B2116976566005D2EB3 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		E4A95BE6169621F000E29C68 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		E4A95BE7169621F000E29C68 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		E4A95D2F169652E600E29C68 /* AboutMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMenuLayer.h; sourceTree = "<group>"; };
@@ -1026,6 +1029,8 @@
 			children = (
 				E4501B1C16976391005D2EB3 /* GameStatusManager.h */,
 				E4501B1D16976391005D2EB3 /* GameStatusManager.m */,
+				E4501B2016976566005D2EB3 /* GameController.h */,
+				E4501B2116976566005D2EB3 /* GameController.m */,
 			);
 			name = GameControllers;
 			sourceTree = "<group>";
@@ -1501,6 +1506,7 @@
 				E4A95D31169652E600E29C68 /* AboutMenuLayer.m in Sources */,
 				E4A95D3C16968D1B00E29C68 /* PlayMenuLayer.m in Sources */,
 				E4501B1E16976391005D2EB3 /* GameStatusManager.m in Sources */,
+				E4501B2216976566005D2EB3 /* GameController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
