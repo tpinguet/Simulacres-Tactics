@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "CCBReader.h"
 #import "CCControlButton.h"
+#import "GameStatusManager.h"
 
 @interface PlayMenuLayer() {
     CCControlButton *continueButton;
@@ -23,6 +24,8 @@
     NSLog(@"continue button visibility is %d", continueButton.visible);
     CCControlButton *button = (CCControlButton*) sender;
     NSLog(@"%d", button.tag);
+    GameStatusManager *gameStatusManager = [GameStatusManager gameStatusManager];
+    NSLog(@"%@", gameStatusManager.testString);
     switch (button.tag) {
         case 1:
             //start new game
