@@ -10,6 +10,9 @@
 
 @interface GameController : NSObject
 
+@property (nonatomic) BOOL gameInProgress;
+
 +(GameController *)gameController;
+-(void)startNewGame;
 
 @end

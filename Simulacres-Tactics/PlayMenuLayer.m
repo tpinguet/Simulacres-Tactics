@@ -11,6 +11,7 @@
 #import "CCBReader.h"
 #import "CCControlButton.h"
 #import "GameStatusManager.h"
+#import "GameController.h"
 
 @interface PlayMenuLayer() {
     CCControlButton *continueButton;
@@ -26,9 +27,11 @@
     NSLog(@"%d", button.tag);
     GameStatusManager *gameStatusManager = [GameStatusManager gameStatusManager];
     NSLog(@"%@", gameStatusManager.testString);
+    GameController *gm = [GameController gameController];
     switch (button.tag) {
         case 1:
             //start new game
+            [gm startNewGame];
             break;
         case 2:
             //continue existing game

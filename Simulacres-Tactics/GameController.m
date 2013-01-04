@@ -7,17 +7,32 @@
 //
 
 #import "GameController.h"
+#import "CCBReader.h"
 
 @implementation GameController
 
+@synthesize gameInProgress;
+
 +(GameController *)gameController {
-    static GameController *gM = nil;
+    static GameController *gC = nil;
     @synchronized(self) {
-        if(!gM) {
-            gM = [[GameController alloc] init];
+        if(!gC) {
+            gC = [[GameController alloc] init];
         }
     }
-    return gM;
+    return gC;
+}
+
+-(id)init {
+    if((self = [super init])) {
+        self.gameInProgress = FALSE;
+    }
+    return self;
+}
+
+-(void)startNewGame
+{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameScene.ccbi"]]];
 }
 
 @end

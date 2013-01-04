@@ -9,6 +9,28 @@
 /* Begin PBXBuildFile section */
 		E4501B1E16976391005D2EB3 /* GameStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B1D16976391005D2EB3 /* GameStatusManager.m */; };
 		E4501B2216976566005D2EB3 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B2116976566005D2EB3 /* GameController.m */; };
+		E4501B3D16976704005D2EB3 /* ccbDefaultImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2516976704005D2EB3 /* ccbDefaultImages.plist */; };
+		E4501B3E16976704005D2EB3 /* ccbDefaultImages.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2616976704005D2EB3 /* ccbDefaultImages.png */; };
+		E4501B3F16976704005D2EB3 /* ccbParticleFire.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2716976704005D2EB3 /* ccbParticleFire.png */; };
+		E4501B4016976704005D2EB3 /* ccbParticleSmoke.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2816976704005D2EB3 /* ccbParticleSmoke.png */; };
+		E4501B4116976704005D2EB3 /* ccbParticleSnow.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2916976704005D2EB3 /* ccbParticleSnow.png */; };
+		E4501B4216976704005D2EB3 /* ccbParticleStars.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2A16976704005D2EB3 /* ccbParticleStars.png */; };
+		E4501B4316976704005D2EB3 /* clickme-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2B16976704005D2EB3 /* clickme-down.png */; };
+		E4501B4416976704005D2EB3 /* clickme.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2C16976704005D2EB3 /* clickme.png */; };
+		E4501B4516976704005D2EB3 /* GameScene.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2D16976704005D2EB3 /* GameScene.ccbi */; };
+		E4501B4616976704005D2EB3 /* GameBoardBackground-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2F16976704005D2EB3 /* GameBoardBackground-ipadhd.png */; };
+		E4501B4716976704005D2EB3 /* GameBoardBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3016976704005D2EB3 /* GameBoardBackground.png */; };
+		E4501B4816976704005D2EB3 /* clickme-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3216976704005D2EB3 /* clickme-down.png */; };
+		E4501B4916976704005D2EB3 /* clickme.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3316976704005D2EB3 /* clickme.png */; };
+		E4501B4A16976704005D2EB3 /* clickme-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3516976704005D2EB3 /* clickme-down.png */; };
+		E4501B4B16976704005D2EB3 /* clickme.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3616976704005D2EB3 /* clickme.png */; };
+		E4501B4C16976704005D2EB3 /* clickme-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3816976704005D2EB3 /* clickme-down.png */; };
+		E4501B4D16976704005D2EB3 /* clickme.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3916976704005D2EB3 /* clickme.png */; };
+		E4501B4E16976704005D2EB3 /* clickme-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3B16976704005D2EB3 /* clickme-down.png */; };
+		E4501B4F16976704005D2EB3 /* clickme.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B3C16976704005D2EB3 /* clickme.png */; };
+		E4501B5216976748005D2EB3 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B5116976748005D2EB3 /* GameLayer.m */; };
+		E4501B5516976D11005D2EB3 /* map_test-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B5316976D11005D2EB3 /* map_test-ipadhd.png */; };
+		E4501B5616976D11005D2EB3 /* map_test.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B5416976D11005D2EB3 /* map_test.png */; };
 		E4A95BE8169621F000E29C68 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95BE7169621F000E29C68 /* MainMenuLayer.m */; };
 		E4A95D31169652E600E29C68 /* AboutMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D30169652E600E29C68 /* AboutMenuLayer.m */; };
 		E4A95D3C16968D1B00E29C68 /* PlayMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D3B16968D1B00E29C68 /* PlayMenuLayer.m */; };
@@ -203,6 +225,29 @@
 		E4501B1D16976391005D2EB3 /* GameStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatusManager.m; sourceTree = "<group>"; };
 		E4501B2016976566005D2EB3 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		E4501B2116976566005D2EB3 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		E4501B2516976704005D2EB3 /* ccbDefaultImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ccbDefaultImages.plist; sourceTree = "<group>"; };
+		E4501B2616976704005D2EB3 /* ccbDefaultImages.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ccbDefaultImages.png; sourceTree = "<group>"; };
+		E4501B2716976704005D2EB3 /* ccbParticleFire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ccbParticleFire.png; sourceTree = "<group>"; };
+		E4501B2816976704005D2EB3 /* ccbParticleSmoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ccbParticleSmoke.png; sourceTree = "<group>"; };
+		E4501B2916976704005D2EB3 /* ccbParticleSnow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ccbParticleSnow.png; sourceTree = "<group>"; };
+		E4501B2A16976704005D2EB3 /* ccbParticleStars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ccbParticleStars.png; sourceTree = "<group>"; };
+		E4501B2B16976704005D2EB3 /* clickme-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clickme-down.png"; sourceTree = "<group>"; };
+		E4501B2C16976704005D2EB3 /* clickme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clickme.png; sourceTree = "<group>"; };
+		E4501B2D16976704005D2EB3 /* GameScene.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = GameScene.ccbi; sourceTree = "<group>"; };
+		E4501B2F16976704005D2EB3 /* GameBoardBackground-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GameBoardBackground-ipadhd.png"; sourceTree = "<group>"; };
+		E4501B3016976704005D2EB3 /* GameBoardBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GameBoardBackground.png; sourceTree = "<group>"; };
+		E4501B3216976704005D2EB3 /* clickme-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clickme-down.png"; sourceTree = "<group>"; };
+		E4501B3316976704005D2EB3 /* clickme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clickme.png; sourceTree = "<group>"; };
+		E4501B3516976704005D2EB3 /* clickme-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clickme-down.png"; sourceTree = "<group>"; };
+		E4501B3616976704005D2EB3 /* clickme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clickme.png; sourceTree = "<group>"; };
+		E4501B3816976704005D2EB3 /* clickme-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clickme-down.png"; sourceTree = "<group>"; };
+		E4501B3916976704005D2EB3 /* clickme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clickme.png; sourceTree = "<group>"; };
+		E4501B3B16976704005D2EB3 /* clickme-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clickme-down.png"; sourceTree = "<group>"; };
+		E4501B3C16976704005D2EB3 /* clickme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clickme.png; sourceTree = "<group>"; };
+		E4501B5016976748005D2EB3 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		E4501B5116976748005D2EB3 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		E4501B5316976D11005D2EB3 /* map_test-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_test-ipadhd.png"; sourceTree = "<group>"; };
+		E4501B5416976D11005D2EB3 /* map_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_test.png; sourceTree = "<group>"; };
 		E4A95BE6169621F000E29C68 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		E4A95BE7169621F000E29C68 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		E4A95D2F169652E600E29C68 /* AboutMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMenuLayer.h; sourceTree = "<group>"; };
@@ -584,6 +629,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4501B2316976704005D2EB3 /* Game_CCBI */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B2416976704005D2EB3 /* ccbResources */,
+				E4501B2B16976704005D2EB3 /* clickme-down.png */,
+				E4501B2C16976704005D2EB3 /* clickme.png */,
+				E4501B2D16976704005D2EB3 /* GameScene.ccbi */,
+				E4501B2E16976704005D2EB3 /* images */,
+				E4501B3116976704005D2EB3 /* resources-ipad */,
+				E4501B3416976704005D2EB3 /* resources-ipadhd */,
+				E4501B3716976704005D2EB3 /* resources-iphone */,
+				E4501B3A16976704005D2EB3 /* resources-iphonehd */,
+			);
+			name = Game_CCBI;
+			path = "Resources/CCB Scenes/Game/Game_CCBI";
+			sourceTree = "<group>";
+		};
+		E4501B2416976704005D2EB3 /* ccbResources */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B2516976704005D2EB3 /* ccbDefaultImages.plist */,
+				E4501B2616976704005D2EB3 /* ccbDefaultImages.png */,
+				E4501B2716976704005D2EB3 /* ccbParticleFire.png */,
+				E4501B2816976704005D2EB3 /* ccbParticleSmoke.png */,
+				E4501B2916976704005D2EB3 /* ccbParticleSnow.png */,
+				E4501B2A16976704005D2EB3 /* ccbParticleStars.png */,
+			);
+			path = ccbResources;
+			sourceTree = "<group>";
+		};
+		E4501B2E16976704005D2EB3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B2F16976704005D2EB3 /* GameBoardBackground-ipadhd.png */,
+				E4501B3016976704005D2EB3 /* GameBoardBackground.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		E4501B3116976704005D2EB3 /* resources-ipad */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B3216976704005D2EB3 /* clickme-down.png */,
+				E4501B3316976704005D2EB3 /* clickme.png */,
+			);
+			path = "resources-ipad";
+			sourceTree = "<group>";
+		};
+		E4501B3416976704005D2EB3 /* resources-ipadhd */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B3516976704005D2EB3 /* clickme-down.png */,
+				E4501B3616976704005D2EB3 /* clickme.png */,
+			);
+			path = "resources-ipadhd";
+			sourceTree = "<group>";
+		};
+		E4501B3716976704005D2EB3 /* resources-iphone */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B3816976704005D2EB3 /* clickme-down.png */,
+				E4501B3916976704005D2EB3 /* clickme.png */,
+			);
+			path = "resources-iphone";
+			sourceTree = "<group>";
+		};
+		E4501B3A16976704005D2EB3 /* resources-iphonehd */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B3B16976704005D2EB3 /* clickme-down.png */,
+				E4501B3C16976704005D2EB3 /* clickme.png */,
+			);
+			path = "resources-iphonehd";
+			sourceTree = "<group>";
+		};
 		E4E1E600169617CD00D58BF3 = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +757,9 @@
 		E4E1E622169617CD00D58BF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E4501B5316976D11005D2EB3 /* map_test-ipadhd.png */,
+				E4501B5416976D11005D2EB3 /* map_test.png */,
+				E4501B2316976704005D2EB3 /* Game_CCBI */,
 				E4F9C3B716975E7D006EFB95 /* Menus_CCBI */,
 				E4E1E623169617CD00D58BF3 /* Default.png */,
 				E4E1E625169617CD00D58BF3 /* Default@2x.png */,
@@ -1048,6 +1171,8 @@
 				E4A95D30169652E600E29C68 /* AboutMenuLayer.m */,
 				E4A95D3A16968D1B00E29C68 /* PlayMenuLayer.h */,
 				E4A95D3B16968D1B00E29C68 /* PlayMenuLayer.m */,
+				E4501B5016976748005D2EB3 /* GameLayer.h */,
+				E4501B5116976748005D2EB3 /* GameLayer.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1358,6 +1483,27 @@
 				E4F9C3EF16975E7D006EFB95 /* clickme.png in Resources */,
 				E4F9C3F016975E7D006EFB95 /* clickme-down.png in Resources */,
 				E4F9C3F116975E7D006EFB95 /* clickme.png in Resources */,
+				E4501B3D16976704005D2EB3 /* ccbDefaultImages.plist in Resources */,
+				E4501B3E16976704005D2EB3 /* ccbDefaultImages.png in Resources */,
+				E4501B3F16976704005D2EB3 /* ccbParticleFire.png in Resources */,
+				E4501B4016976704005D2EB3 /* ccbParticleSmoke.png in Resources */,
+				E4501B4116976704005D2EB3 /* ccbParticleSnow.png in Resources */,
+				E4501B4216976704005D2EB3 /* ccbParticleStars.png in Resources */,
+				E4501B4316976704005D2EB3 /* clickme-down.png in Resources */,
+				E4501B4416976704005D2EB3 /* clickme.png in Resources */,
+				E4501B4516976704005D2EB3 /* GameScene.ccbi in Resources */,
+				E4501B4616976704005D2EB3 /* GameBoardBackground-ipadhd.png in Resources */,
+				E4501B4716976704005D2EB3 /* GameBoardBackground.png in Resources */,
+				E4501B4816976704005D2EB3 /* clickme-down.png in Resources */,
+				E4501B4916976704005D2EB3 /* clickme.png in Resources */,
+				E4501B4A16976704005D2EB3 /* clickme-down.png in Resources */,
+				E4501B4B16976704005D2EB3 /* clickme.png in Resources */,
+				E4501B4C16976704005D2EB3 /* clickme-down.png in Resources */,
+				E4501B4D16976704005D2EB3 /* clickme.png in Resources */,
+				E4501B4E16976704005D2EB3 /* clickme-down.png in Resources */,
+				E4501B4F16976704005D2EB3 /* clickme.png in Resources */,
+				E4501B5516976D11005D2EB3 /* map_test-ipadhd.png in Resources */,
+				E4501B5616976D11005D2EB3 /* map_test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1507,6 +1653,7 @@
 				E4A95D3C16968D1B00E29C68 /* PlayMenuLayer.m in Sources */,
 				E4501B1E16976391005D2EB3 /* GameStatusManager.m in Sources */,
 				E4501B2216976566005D2EB3 /* GameController.m in Sources */,
+				E4501B5216976748005D2EB3 /* GameLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

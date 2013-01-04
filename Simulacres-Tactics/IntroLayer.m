@@ -11,6 +11,7 @@
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
 #import "CCBReader.h"
+#import "GameController.h"
 
 
 #pragma mark - IntroLayer
@@ -54,6 +55,7 @@
 
 		// add the label as a child to this Layer
 		[self addChild: background];
+
 	}
 	
 	return self;
