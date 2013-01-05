@@ -7,6 +7,7 @@
 //
 
 #import "GameLayer.h"
+#import "CCNode+SFGestureRecognizers.h"
 #import "CCBReader.h"
 #import "CharacterStat.h"
 #import "RenderComponent.h"
@@ -50,6 +51,42 @@
 //    [entityManager addComponent:statComponent toEntity:entity];
     GameController *controller = [GameController gameController];
     controller._gameLayer = self;
+}
+
+#pragma mark - GestureRecognizer delegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
+- (void)handlePanGesture:(UIPanGestureRecognizer*)aPanGestureRecognizer
+{
+    CCNode *node = aPanGestureRecognizer.node;
+    CGPoint translation = [aPanGestureRecognizer translationInView:aPanGestureRecognizer.view];
+    translation.y *= -1;
+    [aPanGestureRecognizer setTranslation:CGPointZero inView:aPanGestureRecognizer.view];
+    
+    node.position = ccpAdd(node.position, translation);
+}
+
+- (void)handlePinchGesture:(UIPinchGestureRecognizer*)aPinchGestureRecognizer
+{
+    if (aPinchGestureRecognizer.state == UIGestureRecognizerStateBegan || aPinchGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        CCNode *node = aPinchGestureRecognizer.node;
+        float scale = [aPinchGestureRecognizer scale];
+        node.scale *= scale;
+        aPinchGestureRecognizer.scale = 1;
+    }
+}
+
+- (void)handleRotationGestureRecognizer:(UIRotationGestureRecognizer*)aRotationGestureRecognizer
+{
+    if (aRotationGestureRecognizer.state == UIGestureRecognizerStateBegan || aRotationGestureRecognizer.state == UIGestureRecognizerStateChanged) {
+        CCNode *node = aRotationGestureRecognizer.node;
+        float rotation = aRotationGestureRecognizer.rotation;
+        node.rotation += CC_RADIANS_TO_DEGREES(rotation);
+        aRotationGestureRecognizer.rotation = 0;
+    }
 }
 
 @end

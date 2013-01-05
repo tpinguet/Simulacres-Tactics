@@ -40,6 +40,7 @@
 		E4501B7C1697808D005D2EB3 /* StatComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7B1697808D005D2EB3 /* StatComponent.m */; };
 		E4501B7F169780AF005D2EB3 /* CharacterStat.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7E169780AF005D2EB3 /* CharacterStat.m */; };
 		E4501B831697ADA5005D2EB3 /* BoardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B821697ADA5005D2EB3 /* BoardComponent.m */; };
+		E4501B8B1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B8A1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m */; };
 		E4A95BE8169621F000E29C68 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95BE7169621F000E29C68 /* MainMenuLayer.m */; };
 		E4A95D31169652E600E29C68 /* AboutMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D30169652E600E29C68 /* AboutMenuLayer.m */; };
 		E4A95D3C16968D1B00E29C68 /* PlayMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D3B16968D1B00E29C68 /* PlayMenuLayer.m */; };
@@ -275,6 +276,8 @@
 		E4501B7E169780AF005D2EB3 /* CharacterStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterStat.m; sourceTree = "<group>"; };
 		E4501B811697ADA4005D2EB3 /* BoardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardComponent.h; sourceTree = "<group>"; };
 		E4501B821697ADA5005D2EB3 /* BoardComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardComponent.m; sourceTree = "<group>"; };
+		E4501B891697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
+		E4501B8A1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+SFGestureRecognizers.m"; sourceTree = "<group>"; };
 		E4A95BE6169621F000E29C68 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		E4A95BE7169621F000E29C68 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		E4A95D2F169652E600E29C68 /* AboutMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMenuLayer.h; sourceTree = "<group>"; };
@@ -775,6 +778,15 @@
 			name = AI;
 			sourceTree = "<group>";
 		};
+		E4501B881697B7E9005D2EB3 /* CCNode+SFGestureRecognizers */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B891697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.h */,
+				E4501B8A1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m */,
+			);
+			path = "CCNode+SFGestureRecognizers";
+			sourceTree = "<group>";
+		};
 		E4E1E600169617CD00D58BF3 = {
 			isa = PBXGroup;
 			children = (
@@ -851,6 +863,7 @@
 		E4E1E63A169617CD00D58BF3 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				E4501B881697B7E9005D2EB3 /* CCNode+SFGestureRecognizers */,
 				E4E1E7BB169618DB00D58BF3 /* CCBReader */,
 				E4E1E762169617CF00D58BF3 /* LICENSE_cocos2d.txt */,
 				E4E1E771169617CF00D58BF3 /* LICENSE_CocosDenshion.txt */,
@@ -1740,6 +1753,7 @@
 				E4501B7C1697808D005D2EB3 /* StatComponent.m in Sources */,
 				E4501B7F169780AF005D2EB3 /* CharacterStat.m in Sources */,
 				E4501B831697ADA5005D2EB3 /* BoardComponent.m in Sources */,
+				E4501B8B1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
