@@ -31,6 +31,15 @@
 		E4501B5216976748005D2EB3 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B5116976748005D2EB3 /* GameLayer.m */; };
 		E4501B5516976D11005D2EB3 /* map_test-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B5316976D11005D2EB3 /* map_test-ipadhd.png */; };
 		E4501B5616976D11005D2EB3 /* map_test.png in Resources */ = {isa = PBXBuildFile; fileRef = E4501B5416976D11005D2EB3 /* map_test.png */; };
+		E4501B6516977EB1005D2EB3 /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B6416977EB1005D2EB3 /* Entity.m */; };
+		E4501B6816977EC1005D2EB3 /* EntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B6716977EC1005D2EB3 /* EntityManager.m */; };
+		E4501B6B16977ECD005D2EB3 /* EntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B6A16977ECD005D2EB3 /* EntityFactory.m */; };
+		E4501B6E16977EDF005D2EB3 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B6D16977EDF005D2EB3 /* Component.m */; };
+		E4501B7116977EF5005D2EB3 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7016977EF5005D2EB3 /* System.m */; };
+		E4501B7816978000005D2EB3 /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7716978000005D2EB3 /* RenderComponent.m */; };
+		E4501B7C1697808D005D2EB3 /* StatComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7B1697808D005D2EB3 /* StatComponent.m */; };
+		E4501B7F169780AF005D2EB3 /* CharacterStat.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7E169780AF005D2EB3 /* CharacterStat.m */; };
+		E4501B831697ADA5005D2EB3 /* BoardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B821697ADA5005D2EB3 /* BoardComponent.m */; };
 		E4A95BE8169621F000E29C68 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95BE7169621F000E29C68 /* MainMenuLayer.m */; };
 		E4A95D31169652E600E29C68 /* AboutMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D30169652E600E29C68 /* AboutMenuLayer.m */; };
 		E4A95D3C16968D1B00E29C68 /* PlayMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95D3B16968D1B00E29C68 /* PlayMenuLayer.m */; };
@@ -248,6 +257,24 @@
 		E4501B5116976748005D2EB3 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		E4501B5316976D11005D2EB3 /* map_test-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_test-ipadhd.png"; sourceTree = "<group>"; };
 		E4501B5416976D11005D2EB3 /* map_test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_test.png; sourceTree = "<group>"; };
+		E4501B6316977EB1005D2EB3 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		E4501B6416977EB1005D2EB3 /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		E4501B6616977EC1005D2EB3 /* EntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityManager.h; sourceTree = "<group>"; };
+		E4501B6716977EC1005D2EB3 /* EntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityManager.m; sourceTree = "<group>"; };
+		E4501B6916977ECD005D2EB3 /* EntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFactory.h; sourceTree = "<group>"; };
+		E4501B6A16977ECD005D2EB3 /* EntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntityFactory.m; sourceTree = "<group>"; };
+		E4501B6C16977EDF005D2EB3 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		E4501B6D16977EDF005D2EB3 /* Component.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Component.m; sourceTree = "<group>"; };
+		E4501B6F16977EF5005D2EB3 /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
+		E4501B7016977EF5005D2EB3 /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.m; sourceTree = "<group>"; };
+		E4501B7616978000005D2EB3 /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderComponent.h; sourceTree = "<group>"; };
+		E4501B7716978000005D2EB3 /* RenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderComponent.m; sourceTree = "<group>"; };
+		E4501B7A1697808D005D2EB3 /* StatComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatComponent.h; sourceTree = "<group>"; };
+		E4501B7B1697808D005D2EB3 /* StatComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatComponent.m; sourceTree = "<group>"; };
+		E4501B7D169780AF005D2EB3 /* CharacterStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterStat.h; sourceTree = "<group>"; };
+		E4501B7E169780AF005D2EB3 /* CharacterStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterStat.m; sourceTree = "<group>"; };
+		E4501B811697ADA4005D2EB3 /* BoardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardComponent.h; sourceTree = "<group>"; };
+		E4501B821697ADA5005D2EB3 /* BoardComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardComponent.m; sourceTree = "<group>"; };
 		E4A95BE6169621F000E29C68 /* MainMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuLayer.h; sourceTree = "<group>"; };
 		E4A95BE7169621F000E29C68 /* MainMenuLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuLayer.m; sourceTree = "<group>"; };
 		E4A95D2F169652E600E29C68 /* AboutMenuLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutMenuLayer.h; sourceTree = "<group>"; };
@@ -704,6 +731,50 @@
 			path = "resources-iphonehd";
 			sourceTree = "<group>";
 		};
+		E4501B5F169771F5005D2EB3 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B6316977EB1005D2EB3 /* Entity.h */,
+				E4501B6416977EB1005D2EB3 /* Entity.m */,
+				E4501B6616977EC1005D2EB3 /* EntityManager.h */,
+				E4501B6716977EC1005D2EB3 /* EntityManager.m */,
+				E4501B6916977ECD005D2EB3 /* EntityFactory.h */,
+				E4501B6A16977ECD005D2EB3 /* EntityFactory.m */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
+		E4501B60169771FB005D2EB3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B6C16977EDF005D2EB3 /* Component.h */,
+				E4501B6D16977EDF005D2EB3 /* Component.m */,
+				E4501B7616978000005D2EB3 /* RenderComponent.h */,
+				E4501B7716978000005D2EB3 /* RenderComponent.m */,
+				E4501B7A1697808D005D2EB3 /* StatComponent.h */,
+				E4501B7B1697808D005D2EB3 /* StatComponent.m */,
+				E4501B811697ADA4005D2EB3 /* BoardComponent.h */,
+				E4501B821697ADA5005D2EB3 /* BoardComponent.m */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		E4501B6116977202005D2EB3 /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				E4501B6F16977EF5005D2EB3 /* System.h */,
+				E4501B7016977EF5005D2EB3 /* System.m */,
+			);
+			name = Systems;
+			sourceTree = "<group>";
+		};
+		E4501B6216977214005D2EB3 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AI;
+			sourceTree = "<group>";
+		};
 		E4E1E600169617CD00D58BF3 = {
 			isa = PBXGroup;
 			children = (
@@ -1136,6 +1207,10 @@
 		E4E1E7B61696180D00D58BF3 /* EntitySystem */ = {
 			isa = PBXGroup;
 			children = (
+				E4501B5F169771F5005D2EB3 /* Framework */,
+				E4501B60169771FB005D2EB3 /* Components */,
+				E4501B6116977202005D2EB3 /* Systems */,
+				E4501B6216977214005D2EB3 /* AI */,
 			);
 			name = EntitySystem;
 			sourceTree = "<group>";
@@ -1143,6 +1218,12 @@
 		E4E1E7B71696181600D58BF3 /* MenuLayers */ = {
 			isa = PBXGroup;
 			children = (
+				E4A95BE6169621F000E29C68 /* MainMenuLayer.h */,
+				E4A95BE7169621F000E29C68 /* MainMenuLayer.m */,
+				E4A95D2F169652E600E29C68 /* AboutMenuLayer.h */,
+				E4A95D30169652E600E29C68 /* AboutMenuLayer.m */,
+				E4A95D3A16968D1B00E29C68 /* PlayMenuLayer.h */,
+				E4A95D3B16968D1B00E29C68 /* PlayMenuLayer.m */,
 			);
 			name = MenuLayers;
 			sourceTree = "<group>";
@@ -1165,12 +1246,6 @@
 				E4E1E7AF169617D000D58BF3 /* IntroLayer.m */,
 				E4E1E7AB169617D000D58BF3 /* HelloWorldLayer.h */,
 				E4E1E7AC169617D000D58BF3 /* HelloWorldLayer.m */,
-				E4A95BE6169621F000E29C68 /* MainMenuLayer.h */,
-				E4A95BE7169621F000E29C68 /* MainMenuLayer.m */,
-				E4A95D2F169652E600E29C68 /* AboutMenuLayer.h */,
-				E4A95D30169652E600E29C68 /* AboutMenuLayer.m */,
-				E4A95D3A16968D1B00E29C68 /* PlayMenuLayer.h */,
-				E4A95D3B16968D1B00E29C68 /* PlayMenuLayer.m */,
 				E4501B5016976748005D2EB3 /* GameLayer.h */,
 				E4501B5116976748005D2EB3 /* GameLayer.m */,
 			);
@@ -1180,6 +1255,8 @@
 		E4E1E7BA1696185000D58BF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E4501B7D169780AF005D2EB3 /* CharacterStat.h */,
+				E4501B7E169780AF005D2EB3 /* CharacterStat.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1654,6 +1731,15 @@
 				E4501B1E16976391005D2EB3 /* GameStatusManager.m in Sources */,
 				E4501B2216976566005D2EB3 /* GameController.m in Sources */,
 				E4501B5216976748005D2EB3 /* GameLayer.m in Sources */,
+				E4501B6516977EB1005D2EB3 /* Entity.m in Sources */,
+				E4501B6816977EC1005D2EB3 /* EntityManager.m in Sources */,
+				E4501B6B16977ECD005D2EB3 /* EntityFactory.m in Sources */,
+				E4501B6E16977EDF005D2EB3 /* Component.m in Sources */,
+				E4501B7116977EF5005D2EB3 /* System.m in Sources */,
+				E4501B7816978000005D2EB3 /* RenderComponent.m in Sources */,
+				E4501B7C1697808D005D2EB3 /* StatComponent.m in Sources */,
+				E4501B7F169780AF005D2EB3 /* CharacterStat.m in Sources */,
+				E4501B831697ADA5005D2EB3 /* BoardComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
