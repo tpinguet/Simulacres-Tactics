@@ -16,8 +16,6 @@
 
 -(id)initWithEntityManager:(EntityManager *)entityManager;
 
--(void)setGameLayer:(GameLayer *)gameLayer;
-
 -(Entity *)createGameBoard;
 
 @end

@@ -13,10 +13,10 @@
 #import "RenderComponent.h"
 #import "StatComponent.h"
 #import "BoardComponent.h"
+#import "GameController.h"
 
 @implementation EntityFactory {
     EntityManager *_entityManager;
-    GameLayer *_gameLayer;
 }
 
 -(id)initWithEntityManager:(EntityManager *)entityManager  {
@@ -30,13 +30,9 @@
     CCSprite *gameBoardSprite = [[CCSprite alloc] initWithFile:@"map_test.png"];
     Entity *entity = [_entityManager createEntity];
     [_entityManager addComponent:[[RenderComponent alloc] initWithSprite:gameBoardSprite] toEntity:entity];
-    [_gameLayer addChild:gameBoardSprite];
+    [[GameController gameController]._gameLayer addChild:gameBoardSprite];
     [_entityManager addComponent:[[BoardComponent alloc] initWithColumns:10 rows:5 ] toEntity:entity];
     return entity;
-}
-
--(void)setGameLayer:(GameLayer *)gameLayer {
-    _gameLayer = gameLayer;
 }
 
 @end

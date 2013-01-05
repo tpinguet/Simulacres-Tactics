@@ -48,7 +48,8 @@
 //    EntityManager *entityManager = [[EntityManager alloc] init];
 //    Entity *entity = [entityManager createEntity];
 //    [entityManager addComponent:statComponent toEntity:entity];
-    [[GameController gameController] setGameLayer:self];
+    GameController *controller = [GameController gameController];
+    controller._gameLayer = self;
 }
 
 @end

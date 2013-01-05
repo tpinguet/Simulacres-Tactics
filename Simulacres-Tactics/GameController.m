@@ -33,10 +33,6 @@
     return self;
 }
 
--(void)setGameLayer:(GameLayer *)gameLayer {
-    [self._entityFactory setGameLayer:gameLayer];
-}
-
 -(void)startNewGame
 {
     CGSize winSize = [CCDirector sharedDirector].winSize;
