@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E404DA3A16ADBF740030C399 /* hexmap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E404DA3816ADBF740030C399 /* hexmap3.tmx */; };
+		E404DA3B16ADBF740030C399 /* hextiles.png in Resources */ = {isa = PBXBuildFile; fileRef = E404DA3916ADBF740030C399 /* hextiles.png */; };
 		E43BADB316AB6064003492D8 /* hexmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E43BADB216AB6064003492D8 /* hexmap.tmx */; };
 		E43BAEAE16AB6142003492D8 /* hexa-tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = E43BAEAD16AB6142003492D8 /* hexa-tiles.png */; };
 		E4414B6C16ACCB2E00096DFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E1E61B169617CD00D58BF3 /* Foundation.framework */; };
@@ -261,6 +263,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E404DA3816ADBF740030C399 /* hexmap3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hexmap3.tmx; path = Resources/hexmap3.tmx; sourceTree = "<group>"; };
+		E404DA3916ADBF740030C399 /* hextiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hextiles.png; path = Resources/hextiles.png; sourceTree = "<group>"; };
 		E43BADB216AB6064003492D8 /* hexmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hexmap.tmx; path = Resources/hexmap.tmx; sourceTree = "<group>"; };
 		E43BAEAD16AB6142003492D8 /* hexa-tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hexa-tiles.png"; path = "Resources/hexa-tiles.png"; sourceTree = "<group>"; };
 		E4414B6B16ACCB2E00096DFF /* libcocos2d-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocos2d-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1400,6 +1404,8 @@
 		E4E1E622169617CD00D58BF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E404DA3816ADBF740030C399 /* hexmap3.tmx */,
+				E404DA3916ADBF740030C399 /* hextiles.png */,
 				E4414D4616ACEAC500096DFF /* hexmap2.tmx */,
 				E43BAEAD16AB6142003492D8 /* hexa-tiles.png */,
 				E43BADB216AB6064003492D8 /* hexmap.tmx */,
@@ -1734,6 +1740,8 @@
 				E43BADB316AB6064003492D8 /* hexmap.tmx in Resources */,
 				E43BAEAE16AB6142003492D8 /* hexa-tiles.png in Resources */,
 				E4414D4716ACEAC500096DFF /* hexmap2.tmx in Resources */,
+				E404DA3A16ADBF740030C399 /* hexmap3.tmx in Resources */,
+				E404DA3B16ADBF740030C399 /* hextiles.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2106,6 +2114,7 @@
 				E4414B7616ACCB2E00096DFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4414CEA16ACCC9100096DFF /* Build configuration list for PBXNativeTarget "ccbreader-library" */ = {
 			isa = XCConfigurationList;
@@ -2114,6 +2123,7 @@
 				E4414CEC16ACCC9100096DFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E4E1E605169617CD00D58BF3 /* Build configuration list for PBXProject "Simulacres-Tactics" */ = {
 			isa = XCConfigurationList;

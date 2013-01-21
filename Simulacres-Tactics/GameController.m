@@ -45,7 +45,7 @@
     [self numberOfEntities];
     //NSLog(@"length of _entities:%i", [_entityManager numberOfEntities]);
     RenderComponent *gameBoardRender = gameBoard.render;
-    gameBoardRender.map.scale = 0.5;
+    gameBoardRender.map.scale = 1.0;
     gameBoardRender.map.position = ccp(0,0);
     [self.gameLayer addMapRenderComponent:gameBoardRender.map];
 }

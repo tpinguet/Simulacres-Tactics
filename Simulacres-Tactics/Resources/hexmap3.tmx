@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="hexagonal" width="12" height="8" tilewidth="80" tileheight="70">
+ <tileset name="inkscape" firstgid="1" tilewidth="80" tileheight="70">
+  <image source="hextiles.png"/>
+ </tileset>
+ <layer name="Layer 0" width="12" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNiYGBgAmIWHJgJB0ZXg08tOmYlQR0yJlY9Ne2lphvR1YIwAOTp0IqAAQAA
+  </data>
+ </layer>
+</map>

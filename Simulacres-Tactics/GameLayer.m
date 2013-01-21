@@ -20,6 +20,8 @@
 
 @implementation GameLayer {
     float totalTime;
+    NSMutableArray *linePoints;
+    CCSprite *background;
 }
 
 @synthesize hexMap;
@@ -34,12 +36,14 @@
     GameController *controller = [GameController sharedGameController];
     controller.gameLayer = self;
     totalTime = 0;
+    linePoints = [NSMutableArray array];
     //[self scheduleUpdate];
 }
 
 -(void)addMapRenderComponent:(CCTMXTiledMap *)map {
     self.hexMap = map;
-    [self addChild:self.hexMap];
+    [self addChild:self.hexMap z:-1];
+    [background setZOrder:-5];
 }
 
 #pragma mark - GestureRecognizer delegate
@@ -215,7 +219,7 @@
 }
 
 -(void)displayLOS:(CGPoint)touchedTile {
-    //algorithm is basically to cycle through each tile and determine if LOS exists by tracing a line to it and looking for obstructions
+    //algorithm is basically to cycle through each tile and determine if LOS exists by tracing a line to it and looking for obstructions in between
     
     int x0 = touchedTile.x;
     int y0 = touchedTile.y;
@@ -227,6 +231,15 @@
     CGFloat s = 0.75*hexSize.width;
     CGPoint mapPixelPosition = self.hexMap.position;
     CCTMXLayer *layer = [self.hexMap layerNamed:@"Layer 0"];
+    
+    CCSprite *tile = [layer tileAt:touchedTile];
+    [tile setOpacity:200];
+    int tileGID = [layer tileGIDAt:touchedTile];
+    
+    
+    
+    
+    NSMutableArray *tilesOnLOS = [[NSMutableArray alloc] init];
     
     BOOL isOddColumn = NO;
     if (x0 % 2 == 0) {
@@ -242,60 +255,80 @@
     }
     float XPos0 = (s*x0+hexSize.width*0.5)*scale+mapPixelPosition.x;
 
+    
+    
     CGPoint hexToTest = CGPointMake(x0, y0);
     BOOL notVisible;
-    int n;
     NSLog(@"Starting from tile (%i,%i) at coordinates (%f,%f)", x0, y0, XPos0, YPos0);
     
-    for (int x = 0; x < mapSize.width; x++) {
-        for (int y = 0; y < mapSize.height; y++) {
-            //translate into cartesian coordinates from hex grid coordinates
-            isOddColumn = NO;
-            if (x % 2 == 0) {
-                isOddColumn = NO;
+    //for (int x = 0; x < mapSize.width; x++) {
+        int x = 0 ;
+        int y = 0 ;
+        //for (int y = 0; y < mapSize.height; y++) {
+            [tilesOnLOS removeAllObjects];
+            NSLog(@"count: %i", [tilesOnLOS count]);
+            if( x == x0 && y == y0 ) {
+                //do nothing
             } else {
-                isOddColumn = YES;
-            }
-            float YPos = hexSize.height*((mapSize.height-1-y)+0.5)*scale+mapPixelPosition.y;
-            if (isOddColumn) {
-                    YPos -= hexSize.height * 0.5 * scale;
-            }
-            float XPos = (s*x+hexSize.width*0.5)*scale+mapPixelPosition.x;
-            //we're going to test 100 points along the line
-            float nmax = 20;
-            hexToTest = CGPointMake(x0, y0);
-            
-            NSLog(@"Testing tile (%i, %i) with coordinates (%f, %f)", x, y, XPos, YPos);
-            
-            notVisible = FALSE;
-            
-            n = 0;
-            while (n<=nmax && notVisible == FALSE) {
-                float Xn = XPos0 + n * (XPos-XPos0) / nmax;
-                float Yn = YPos0 + n * (YPos-YPos0) / nmax;
-                //find which hex this point is in
-                for (int i = 0; i < mapSize.width; i++) {
-                    for (int j = 0; j < mapSize.height; j++) {
-                        //NSLog(@"testing inside of hex: %i %i", i, j);
-                        //NSLog(@"%i", [self point:CGPointMake(Xn, Yn) InsideHexAtCoord:CGPointMake(i, j)]);
-                        if( [self point:CGPointMake(Xn, Yn) InsideHexAtCoord:CGPointMake(i, j)]) {
-                            hexToTest = CGPointMake(i, j);
+                //translate into cartesian coordinates from hex grid coordinates
+                isOddColumn = NO;
+                if (x % 2 == 0) {
+                    isOddColumn = NO;
+                } else {
+                    isOddColumn = YES;
+                }
+                float YPos = hexSize.height*((mapSize.height-1-y)+0.5)*scale+mapPixelPosition.y;
+                if (isOddColumn) {
+                        YPos -= hexSize.height * 0.5 * scale;
+                }
+                float XPos = (s*x+hexSize.width*0.5)*scale+mapPixelPosition.x;
+                [linePoints removeAllObjects];
+                [linePoints addObject:NSStringFromCGPoint(CGPointMake(XPos0, YPos0))];
+                [linePoints addObject:NSStringFromCGPoint(CGPointMake(XPos, YPos))];
+                
+                
+                //we're going to test 100 points along the line
+                float nmax = 100;
+                hexToTest = CGPointMake(x0, y0);
+                
+                NSLog(@"Testing tile (%i, %i) with coordinates (%f, %f)", x, y, XPos, YPos);
+                
+                notVisible = FALSE;
+                
+                for (int n = 0; n <= nmax; n++) {
+                    float Xn = XPos0 + n * (XPos-XPos0) / nmax;
+                    float Yn = YPos0 + n * (YPos-YPos0) / nmax;
+                    //find which hex this point is in
+                    for (int i = 0; i < mapSize.width; i++) {
+                        for (int j = 0; j < mapSize.height; j++) {
+                            if( [self point:CGPointMake(Xn, Yn) InsideHexAtCoord:CGPointMake(i, j)]) {
+                                hexToTest = CGPointMake(i, j);
+                                //NSLog(@"tile crossed: (%f, %f)", hexToTest.x, hexToTest.y);
+                                if ([tilesOnLOS count] > 0) {
+                                    NSValue *val = [tilesOnLOS lastObject];
+                                    CGPoint p = [val CGPointValue];
+                                    if ( CGPointEqualToPoint(p, hexToTest) == FALSE ) {
+                                        //NSLog(@"tile (%f, %f)", hexToTest.x, hexToTest.y);
+                                        [tilesOnLOS addObject:[NSValue valueWithCGPoint:hexToTest]];
+                                    }
+                                } else {
+                                    //NSLog(@"tile (%f, %f)", hexToTest.x, hexToTest.y);
+                                    [tilesOnLOS addObject:[NSValue valueWithCGPoint:hexToTest]];
+                                }
+                            }
                         }
                     }
                 }
-                
-                //NSLog(@"point #%i is in hex:(%f, %f) with coordinates (%f, %f)", n, hexToTest.x, hexToTest.y, Xn, Yn)
-                if ( hexToTest.x == x && hexToTest.y == y && notVisible == FALSE) {
-                    CCSprite *tile = [layer tileAt:hexToTest];
-                    [tile setOpacity:128];
+                //enumerate over tiles found and remove duplicates
+                for(id val in tilesOnLOS) {
+                    CGPoint tilePoint = [val CGPointValue];
+                    NSLog(@"tile (%f, %f)", tilePoint.x, tilePoint.y);
+                    CCSprite *tile = [layer tileAt:tilePoint];
+                    [tile setOpacity:200];
                 }
-                if ([layer tileGIDAt:hexToTest] == 5) {
-                    notVisible = TRUE;
-                }
-                n++;
             }
-        }
-   }
+        //}
+   //}
 }
 
 -(void)update:(ccTime)dt {
@@ -308,6 +341,19 @@
         //[controller._entityFactory numberOfEntities];
         [controller.entityFactory createSimpleEntity];
     }
+}
+
+-(void)draw {
+    
+    if([linePoints count] > 0) {
+        //NSLog(@"%i", [linePoints count]);
+        CGPoint start = CGPointFromString([linePoints objectAtIndex:0]);
+        CGPoint end = CGPointFromString([linePoints objectAtIndex:1]);
+        //NSLog(@"(%f,%f) to (%f,%f)", start.x, start.y, end.x, end.y);
+        ccDrawLine(start, end);
+    }
+    [super draw];
+    
 }
 
 @end
