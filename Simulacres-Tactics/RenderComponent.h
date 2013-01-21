@@ -12,7 +12,10 @@
 @interface RenderComponent : Component
 
 @property (strong) CCSprite *sprite;
+@property (strong) CCTMXTiledMap *map;
+@property (assign) BOOL isSprite;
 
 -(id)initWithSprite:(CCSprite *)sprite;
+-(id)initWithMap:(CCTMXTiledMap *)tiledMap;
 
 @end

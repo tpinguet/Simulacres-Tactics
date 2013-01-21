@@ -10,7 +10,13 @@
 #import "cocos2d.h"
 
 @interface GameLayer : CCLayer <UIGestureRecognizerDelegate> {
-    
+    CCTMXTiledMap *hexMap;
 }
+
+@property (strong) CCTMXTiledMap *hexMap;
+
+-(void)addMapRenderComponent:(CCTMXTiledMap *)map;
+-(BOOL)point:(CGPoint)location InsideHexAtCoord:(CGPoint)tileCoord;
+-(void)displayLOS:(CGPoint)touchedTile;
 
 @end

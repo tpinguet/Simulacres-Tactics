@@ -13,6 +13,17 @@
 - (id)initWithSprite:(CCSprite *)sprite {
     if ((self = [super init])) {
         self.sprite = sprite;
+        self.map = nil;
+        self.isSprite = YES;
+    }
+    return self;
+}
+
+-(id)initWithMap:(CCTMXTiledMap *)tiledMap {
+    if ((self = [super init])) {
+        self.sprite = nil;
+        self.map = tiledMap;
+        self.isSprite = FALSE;
     }
     return self;
 }

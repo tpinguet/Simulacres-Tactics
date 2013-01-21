@@ -17,6 +17,9 @@
 - (void)addComponent:(Component *)component toEntity:(Entity *)entity;
 - (Component *)getComponentOfClass:(Class)class forEntity:(Entity *)entity;
 - (void)removeEntity:(Entity *)entity;
+- (void)removeEntityWithEid:(uint32_t)eid;
 - (NSArray *)getAllEntitiesPosessingComponentOfClass:(Class)class;
+- (NSUInteger)numberOfEntities;
+- (NSUInteger)numberOfComponents;
 
 @end

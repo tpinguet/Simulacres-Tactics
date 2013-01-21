@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="hexagonal" width="8" height="8" tilewidth="175" tileheight="150">
+ <tileset name="hextiles" firstgid="1" tilewidth="175" tileheight="150">
+  <image source="../Development/Frameworks/iOS/cocos2d-iphone-2.1-beta4/Resources/TileMaps/hexa-tiles.png" trans="ff00ff"/>
+ </tileset>
+ <layer name="Layer 0" width="8" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNiYGBgAmJWKGbCgVlJUINLnokIeRBmhGJaySNjAE8dCGwAAQAA
+  </data>
+ </layer>
+</map>

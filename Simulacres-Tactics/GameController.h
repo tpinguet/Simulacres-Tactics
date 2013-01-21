@@ -11,15 +11,19 @@
 #import "EntityManager.h"
 #import "EntityFactory.h"
 #import "cocos2d.h"
+#import "GameLayer.h"
 
 @interface GameController : NSObject
 
-@property (nonatomic) BOOL gameInProgress;
-@property (nonatomic, strong) EntityManager *_entityManager;
-@property (nonatomic, strong) EntityFactory *_entityFactory;
-@property (nonatomic, strong) GameLayer *_gameLayer;
+@property (assign) BOOL gameInProgress;
+@property (strong) EntityManager *entityManager;
+@property (strong) EntityFactory *entityFactory;
+@property (strong) GameLayer *gameLayer;
+@property (assign) uint32_t eid;
 
-+(GameController *)gameController;
++(GameController *)sharedGameController;
 -(void)startNewGame;
+-(void)numberOfEntities;
+-(void)closeGame;
 
 @end

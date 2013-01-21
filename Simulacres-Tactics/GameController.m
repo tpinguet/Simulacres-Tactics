@@ -10,36 +10,55 @@
 #import "CCBReader.h"
 #import "RenderComponent.h" 
 
+
+
+
 @implementation GameController
 
-+(GameController *)gameController {
-    static GameController *gC = nil;
-    @synchronized(self) {
-        if(!gC) {
-            gC = [[GameController alloc] init];
-            EntityManager *entityManager = [[EntityManager alloc] init];
-            EntityFactory *entityFactory = [[EntityFactory alloc] initWithEntityManager:entityManager];
-            gC._entityManager = entityManager;
-            gC._entityFactory = entityFactory;
-        }
-    }
-    return gC;
+@synthesize entityManager, entityFactory, gameLayer;
+@synthesize gameInProgress, eid;
+
++(GameController *)sharedGameController {
+    static GameController *sharedGameController = nil;
+    static dispatch_once_t once;
+    dispatch_once(&once,^{ sharedGameController = [[GameController alloc] init]; });
+    return sharedGameController;
 }
+
 
 -(id)init {
     if((self = [super init])) {
-        self.gameInProgress = FALSE;
+        self.entityManager = [[EntityManager alloc] init];
+        self.entityFactory = [[EntityFactory alloc] initWithEntityManager:self.entityManager];
     }
     return self;
 }
 
 -(void)startNewGame
 {
-    CGSize winSize = [CCDirector sharedDirector].winSize;
+    //CGSize winSize = [CCDirector sharedDirector].winSize;
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameScene.ccbi"]]];
-    Entity *gameBoard = [self._entityFactory createGameBoard];
+    Entity *gameBoard = [self.entityFactory createGameBoard];
+    //Entity *character = [self._entityFactory createSimpleEntity];
+    //NSLog(@"Entity eid:%i", gameBoard.eid);
+    self.eid = gameBoard.eid;
+    [self numberOfEntities];
+    //NSLog(@"length of _entities:%i", [_entityManager numberOfEntities]);
     RenderComponent *gameBoardRender = gameBoard.render;
-    gameBoardRender.sprite.position = ccp(winSize.width/2, winSize.height/2);
+    gameBoardRender.map.scale = 0.5;
+    gameBoardRender.map.position = ccp(0,0);
+    [self.gameLayer addMapRenderComponent:gameBoardRender.map];
+}
+
+-(void)numberOfEntities {
+    NSLog(@"length of _entities:%i", [self.entityManager numberOfEntities]);
+    NSLog(@"length of _components:%i", [self.entityManager numberOfComponents]);
+}
+
+-(void)closeGame
+{
+    NSLog(@"closeGame");
+
 }
 
 @end

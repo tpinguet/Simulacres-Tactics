@@ -65,8 +65,12 @@
     [_entities removeObject:@(entity.eid)];
 }
 
+-(void)removeEntityWithEid:(uint32_t)eid {
+    [_entities removeObject:@(eid)];
+}
+
 - (NSArray *)getAllEntitiesPosessingComponentOfClass:(Class)class {
-    NSMutableDictionary * components = _componentsByClass[NSStringFromClass(class)];
+    NSMutableDictionary *components = _componentsByClass[NSStringFromClass(class)];
     if (components) {
         NSMutableArray * retval = [NSMutableArray arrayWithCapacity:components.allKeys.count];
         for (NSNumber * eid in components.allKeys) {
@@ -76,6 +80,18 @@
     } else {
         return [NSArray array];
     }
+}
+
+-(NSUInteger)numberOfEntities {
+    return [_entities count];
+}
+
+-(NSUInteger)numberOfComponents { 
+        NSMutableArray * retval = [NSMutableArray arrayWithCapacity:_componentsByClass.allKeys.count];
+        for (NSNumber * eid in _componentsByClass.allKeys) {
+            [retval addObject:[[Entity alloc] initWithEid:eid.integerValue entityManager:self]];
+        }
+    return [retval count];
 }
 
 

@@ -27,7 +27,7 @@
     NSLog(@"%d", button.tag);
     GameStatusManager *gameStatusManager = [GameStatusManager gameStatusManager];
     NSLog(@"%@", gameStatusManager.testString);
-    GameController *gm = [GameController gameController];
+    GameController *gm = [GameController sharedGameController];
     switch (button.tag) {
         case 1:
             //start new game

@@ -17,5 +17,8 @@
 -(id)initWithEntityManager:(EntityManager *)entityManager;
 
 -(Entity *)createGameBoard;
+-(Entity *)createSimpleEntity;
+-(void)logAlive;
+-(void)numberOfEntities;
 
 @end
