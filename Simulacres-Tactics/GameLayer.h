@@ -16,7 +16,11 @@
 @property (strong) CCTMXTiledMap *hexMap;
 
 -(void)addMapRenderComponent:(CCTMXTiledMap *)map;
--(BOOL)point:(CGPoint)location InsideHexAtCoord:(CGPoint)tileCoord;
--(void)displayLOS:(CGPoint)touchedTile;
+
+//adjust displayed elements
+-(void)setTileGID:(NSInteger)tileGID;
+-(void)setCover:(NSInteger)cover;
+-(void)setDieRoll:(NSInteger)dieRoll;
+-(void)setResult:(NSString *)resultString;
 
 @end

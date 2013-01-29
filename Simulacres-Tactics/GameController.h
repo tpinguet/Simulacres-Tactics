@@ -19,11 +19,23 @@
 @property (strong) EntityManager *entityManager;
 @property (strong) EntityFactory *entityFactory;
 @property (strong) GameLayer *gameLayer;
-@property (assign) uint32_t eid;
 
 +(GameController *)sharedGameController;
 -(void)startNewGame;
 -(void)numberOfEntities;
 -(void)closeGame;
+
+//methods for dealing with hexes and board in general
+-(CGPoint)hexAtLocation:(CGPoint)location;
+-(BOOL)point:(CGPoint)location InsideHex:(CGPoint)hex;
+-(NSMutableArray *)hexesInLineOfSightFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1;
+-(NSInteger)distanceFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1;
+-(BOOL)lineOfSightFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1;
+-(NSInteger)tileGIDAtHex:(CGPoint)hex;
+-(NSInteger)coverAtHex:(CGPoint)hex;
+-(void)clearBoardStatus;
+
+//game mechanics methods
+-(NSInteger)roll1d6;
 
 @end

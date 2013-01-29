@@ -17,6 +17,8 @@
 -(id)initWithEntityManager:(EntityManager *)entityManager;
 
 -(Entity *)createGameBoard;
+-(Entity *)createCounter1;
+-(Entity *)createCounter2;
 -(Entity *)createSimpleEntity;
 -(void)logAlive;
 -(void)numberOfEntities;

@@ -54,6 +54,27 @@
     return entity;
 }
 
+-(Entity *)createCounter1 {
+    
+    CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"counter1"];
+    [sprite setIsTouchEnabled:YES];
+        
+    Entity *entity = [_entityManager createEntity];
+    [_entityManager addComponent:[[RenderComponent alloc] initWithSprite:sprite] toEntity:entity];
+     return entity;
+}
+
+
+-(Entity *)createCounter2 {
+    
+    CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"counter2"];
+    [sprite setIsTouchEnabled:YES];
+    
+    Entity *entity = [_entityManager createEntity];
+    [_entityManager addComponent:[[RenderComponent alloc] initWithSprite:sprite] toEntity:entity];
+    return entity;
+}
+
 -(Entity *)createSimpleEntity {
     CharacterStat *stat = [[CharacterStat alloc] initWithBody:2 instinct:3 heart:3 mind:3 perception:2 action:2 desire:2 resistance:2 health:2 stamina:2 psychic:2 reign:@"a"];
     Entity *entity = [_entityManager createEntity];

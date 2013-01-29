@@ -3,10 +3,25 @@
 <map version="1.0" orientation="hexagonal" width="12" height="8" tilewidth="80" tileheight="70">
  <tileset name="inkscape" firstgid="1" tilewidth="80" tileheight="70">
   <image source="hextiles.png"/>
+  <tile id="1">
+   <properties>
+    <property name="height" value="0"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="height" value="0"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="height" value="1"/>
+   </properties>
+  </tile>
  </tileset>
- <layer name="Layer 0" width="12" height="8">
+ <layer name="terrain" width="12" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNiYGBgAmIWHJgJB0ZXg08tOmYlQR0yJlY9Ne2lphvR1YIwAOTp0IqAAQAA
+   H4sIAAAAAAAAAJXNMQoAMAgEQY3x/19Oiitk4QIpBgQXzYioa8ucW+acagqtw/4lP3ta4vaNzvU98PYyHXv3nw7vWfgngAEAAA==
   </data>
  </layer>
 </map>

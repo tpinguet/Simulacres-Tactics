@@ -19,9 +19,16 @@
 
 
 @implementation GameLayer {
-    float totalTime;
-    NSMutableArray *linePoints;
+    //variables from CCBuilder Scene
     CCSprite *background;
+    CCLabelTTF *coverLabel;
+    CCLabelTTF *dieRollLabel;
+    CCLabelTTF *resultLabel;
+    CCLabelTTF *tileGIDLabel;
+    float totalTime;
+    BOOL firstTap;
+    CGPoint hex0;
+    CGPoint hex1;
 }
 
 @synthesize hexMap;
@@ -36,8 +43,13 @@
     GameController *controller = [GameController sharedGameController];
     controller.gameLayer = self;
     totalTime = 0;
-    linePoints = [NSMutableArray array];
+    firstTap = YES;
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"counters-test_UntitledSheet.plist"];
     //[self scheduleUpdate];
+    [self setCover:0];
+    [self setTileGID:10];
+    [self setDieRoll:0];
+    [self setResult:@"N/A"];
 }
 
 -(void)addMapRenderComponent:(CCTMXTiledMap *)map {
@@ -88,248 +100,63 @@
 - (void)handleTapGestureRecognizer:(UITapGestureRecognizer*)aTapGestureRecognizer
 {
     NSLog(@"Tap gesture");
+    GameController *controller = [GameController sharedGameController];
+    CCTMXLayer *layer = [hexMap layerNamed:@"terrain"];
     CGPoint location = [aTapGestureRecognizer locationInView:aTapGestureRecognizer.view];
     location.y = 768 - location.y;
-    CCLOG(@"%f, %f\n", location.x, location.y);
-    CGSize mapSize = self.hexMap.mapSize;
-    CGSize hexSize = self.hexMap.tileSize;
-    float scale = self.hexMap.scale;
-    //float dX = sqrt( (hexSize.height * hexSize.height) * 0.75 );
-    float circleRadius = hexSize.width * 0.5 * 0.75 * scale;
-    CCTMXLayer *layer = [self.hexMap layerNamed:@"Layer 0"];
     
-    //first reset all tiles to baseline opacity
-    for (int x = 0; x < mapSize.width; x++) {
-        for (int y = 0; y < mapSize.height; y++) {
-            CGPoint touchedTile = CGPointMake(x,y);
-            CCSprite *tile = [layer tileAt:touchedTile];
-            [tile setOpacity:255];
-        }
-    }
-    
-    //NSLog(@"%f, %f", mapSize.width, mapSize.height);
-    //NSLog(@"%f, %f", hexSize.width, hexSize.height);
-    //NSLog(@"scale: %f", scale);
-    
-    for (int x = 0; x < mapSize.width; x++) {
-        for (int y = 0; y < mapSize.height; y++) {
-            // get the pixel position of the hex
-            //CGPoint hexPosition = [self tilePixelCoord:CGPointMake(x, y)];
-            
-            // if the distance from the center of the hex to the touch location
-            // is less than the circle radius then the hex is being touched
-//            if (ccpLengthSQ(ccpSub(location, hexPosition)) < (circleRadius * circleRadius) ) {
-//                CCLOG(@"You touched (%i, %i)",x,y);
-//                CGPoint touchedTiled = CGPointMake(x,y);
-//                //[layer setTileGID:1 at:touchedTiled];
-//                CCSprite *tile = [layer tileAt:touchedTiled];
-//                if(tile.opacity == 128) {
-//                    [tile setOpacity:255];
-//                } else {
-//                    [tile setOpacity:128];
-//                }
-//                //return CGPointMake(x, y);
-//                return;
-//            }
-            
-            if( [self point:location InsideHexAtCoord:CGPointMake(x, y)] ) {
-                CGPoint touchedTile = CGPointMake(x,y);
-                CCSprite *tile = [layer tileAt:touchedTile];
-                [self displayLOS:touchedTile];
-                return;
-            }
-        }
-    }
-}
-
--(CGPoint)tilePixelCoord:(CGPoint)tileCoord {
-    int x = tileCoord.x;
-    int y = tileCoord.y;
-    
-    BOOL isOddColumn = NO;
-    if (x % 2 == 0) {
-        isOddColumn = NO;
+    CGPoint hexTapped = [controller hexAtLocation:location] ;
+    [self setTileGID:[controller tileGIDAtHex:hexTapped]];
+    NSInteger cover = [controller coverAtHex:hexTapped];
+    [self setCover:cover];
+    NSInteger dieRoll = [controller roll1d6];
+    [self setDieRoll:dieRoll];
+    if( dieRoll-cover >= 5) {
+        [self setResult:@"Hit"];
     } else {
-        isOddColumn = YES;
-    }
-
-    CGSize mapSize = self.hexMap.mapSize;
-    CGSize hexSize = self.hexMap.tileSize;
-    CGFloat scale = self.hexMap.scale;
-    //CGFloat radius = hexSize.height/sqrt(3);
-    CGFloat s = 0.75*hexSize.width;
-    CGPoint mapPixelPosition = self.hexMap.position;
-
-    float YPos = hexSize.height*((mapSize.height-1-y)+0.5)*scale+mapPixelPosition.y;
-    if (isOddColumn) {
-        YPos -= hexSize.height * 0.5 * scale;
+        [self setResult:@"Miss"];
     }
     
-    float XPos = (s*x+hexSize.width*0.5)*scale+mapPixelPosition.x;
-    return CGPointMake(XPos, YPos);
-}
-
--(BOOL)point:(CGPoint)location InsideHexAtCoord:(CGPoint)tileCoord {
-    //first determine center of hex
-    int x = tileCoord.x;
-    int y = tileCoord.y;
-    
-    BOOL isOddColumn = NO;
-    if (x % 2 == 0) {
-        isOddColumn = NO;
+    NSLog(@"Tile tapped is (%f, %f)", hexTapped.x, hexTapped.y);
+    if( firstTap == YES ) {
+        [controller clearBoardStatus];
+        CCSprite *tile = [layer tileAt:hexTapped];
+        [tile setColor:ccc3(128, 128, 128)];
+        hex0 = hexTapped;
+        firstTap = FALSE;
     } else {
-        isOddColumn = YES;
-    }
-    
-    CGSize mapSize = self.hexMap.mapSize;
-    CGSize hexSize = self.hexMap.tileSize;
-    CGFloat scale = self.hexMap.scale;
-    CGFloat radius = hexSize.width/2;
-    CGFloat s = 0.75*hexSize.width;
-    CGPoint mapPixelPosition = self.hexMap.position;
-    
-    float YPos = hexSize.height*((mapSize.height-1-y)+0.5)*scale+mapPixelPosition.y;
-    if (isOddColumn) {
-        YPos -= hexSize.height * 0.5 * scale;
-    }
-    float XPos = (s*x+hexSize.width*0.5)*scale+mapPixelPosition.x;
-    
-    //then quickly check if point is outside of circle enclosing hex
-    if( ccpLengthSQ(ccpSub(location, CGPointMake(XPos, YPos))) > (radius*scale)*(radius*scale) ) {
-        return FALSE;
-    }
-    
-    //then test angle to all normal to edges
-    for (int i = 0; i < 5; i++) {
-        float xA = XPos + radius*scale*cos(M_PI/2-(i+0.5)*M_PI/3);
-        float yA = YPos + radius*scale*sin(M_PI/2-(i+0.5)*M_PI/3);
-        float xB = XPos + radius*scale*cos(M_PI/2-(i+1.5)*M_PI/3);
-        float yB = YPos + radius*scale*sin(M_PI/2-(i+1.5)*M_PI/3);
-        float xC = (xA+xB)/2;
-        float yC = (yA+yB)/2;
-        float normalVectorX = (yB-yA);
-        float normalVectorY = -(xB-xA);
-        float testVectorX = (location.x-xC);
-        float testVectorY = (location.y-yC);
-        if( normalVectorX*testVectorX + normalVectorY*testVectorY < 0 ) {
-            return FALSE;
+        CCSprite *tile = [layer tileAt:hexTapped];
+        [tile setColor:ccc3(128, 128, 128)];
+        hex1 = hexTapped;
+        NSMutableArray *tiles = [controller hexesInLineOfSightFromHex:hex0 toHex:hex1];
+        for (id hexLocation in tiles ) {
+            CGPoint temp = [hexLocation CGPointValue];
+            NSLog(@"tile at location: (%f, %f)\n",  temp.x, temp.y);
+            tile = [layer tileAt:[hexLocation CGPointValue]];
+            [tile setColor:ccc3(128, 128, 128)];
         }
+        NSLog(@"Distance between the two tiles is: %i\n", [controller distanceFromHex:hex0 toHex:hex1]);
+        firstTap = YES;
     }
-    return YES;
 }
 
--(void)displayLOS:(CGPoint)touchedTile {
-    //algorithm is basically to cycle through each tile and determine if LOS exists by tracing a line to it and looking for obstructions in between
-    
-    int x0 = touchedTile.x;
-    int y0 = touchedTile.y;
-    
-    CGSize mapSize = self.hexMap.mapSize;
-    CGSize hexSize = self.hexMap.tileSize;
-    CGFloat scale = self.hexMap.scale;
-    CGFloat radius = hexSize.width/2;
-    CGFloat s = 0.75*hexSize.width;
-    CGPoint mapPixelPosition = self.hexMap.position;
-    CCTMXLayer *layer = [self.hexMap layerNamed:@"Layer 0"];
-    
-    CCSprite *tile = [layer tileAt:touchedTile];
-    [tile setOpacity:200];
-    int tileGID = [layer tileGIDAt:touchedTile];
-    
-    
-    
-    
-    NSMutableArray *tilesOnLOS = [[NSMutableArray alloc] init];
-    
-    BOOL isOddColumn = NO;
-    if (x0 % 2 == 0) {
-        isOddColumn = NO;
-    } else {
-        isOddColumn = YES;
-    }
-
-    
-    float YPos0 = hexSize.height*((mapSize.height-1-y0)+0.5)*scale+mapPixelPosition.y;
-    if (isOddColumn) {
-        YPos0 -= hexSize.height * 0.5 * scale;
-    }
-    float XPos0 = (s*x0+hexSize.width*0.5)*scale+mapPixelPosition.x;
-
-    
-    
-    CGPoint hexToTest = CGPointMake(x0, y0);
-    BOOL notVisible;
-    NSLog(@"Starting from tile (%i,%i) at coordinates (%f,%f)", x0, y0, XPos0, YPos0);
-    
-    //for (int x = 0; x < mapSize.width; x++) {
-        int x = 0 ;
-        int y = 0 ;
-        //for (int y = 0; y < mapSize.height; y++) {
-            [tilesOnLOS removeAllObjects];
-            NSLog(@"count: %i", [tilesOnLOS count]);
-            if( x == x0 && y == y0 ) {
-                //do nothing
-            } else {
-                //translate into cartesian coordinates from hex grid coordinates
-                isOddColumn = NO;
-                if (x % 2 == 0) {
-                    isOddColumn = NO;
-                } else {
-                    isOddColumn = YES;
-                }
-                float YPos = hexSize.height*((mapSize.height-1-y)+0.5)*scale+mapPixelPosition.y;
-                if (isOddColumn) {
-                        YPos -= hexSize.height * 0.5 * scale;
-                }
-                float XPos = (s*x+hexSize.width*0.5)*scale+mapPixelPosition.x;
-                [linePoints removeAllObjects];
-                [linePoints addObject:NSStringFromCGPoint(CGPointMake(XPos0, YPos0))];
-                [linePoints addObject:NSStringFromCGPoint(CGPointMake(XPos, YPos))];
-                
-                
-                //we're going to test 100 points along the line
-                float nmax = 100;
-                hexToTest = CGPointMake(x0, y0);
-                
-                NSLog(@"Testing tile (%i, %i) with coordinates (%f, %f)", x, y, XPos, YPos);
-                
-                notVisible = FALSE;
-                
-                for (int n = 0; n <= nmax; n++) {
-                    float Xn = XPos0 + n * (XPos-XPos0) / nmax;
-                    float Yn = YPos0 + n * (YPos-YPos0) / nmax;
-                    //find which hex this point is in
-                    for (int i = 0; i < mapSize.width; i++) {
-                        for (int j = 0; j < mapSize.height; j++) {
-                            if( [self point:CGPointMake(Xn, Yn) InsideHexAtCoord:CGPointMake(i, j)]) {
-                                hexToTest = CGPointMake(i, j);
-                                //NSLog(@"tile crossed: (%f, %f)", hexToTest.x, hexToTest.y);
-                                if ([tilesOnLOS count] > 0) {
-                                    NSValue *val = [tilesOnLOS lastObject];
-                                    CGPoint p = [val CGPointValue];
-                                    if ( CGPointEqualToPoint(p, hexToTest) == FALSE ) {
-                                        //NSLog(@"tile (%f, %f)", hexToTest.x, hexToTest.y);
-                                        [tilesOnLOS addObject:[NSValue valueWithCGPoint:hexToTest]];
-                                    }
-                                } else {
-                                    //NSLog(@"tile (%f, %f)", hexToTest.x, hexToTest.y);
-                                    [tilesOnLOS addObject:[NSValue valueWithCGPoint:hexToTest]];
-                                }
-                            }
-                        }
-                    }
-                }
-                //enumerate over tiles found and remove duplicates
-                for(id val in tilesOnLOS) {
-                    CGPoint tilePoint = [val CGPointValue];
-                    NSLog(@"tile (%f, %f)", tilePoint.x, tilePoint.y);
-                    CCSprite *tile = [layer tileAt:tilePoint];
-                    [tile setOpacity:200];
-                }
-            }
-        //}
-   //}
+-(void)setTileGID:(NSInteger)tileGID {
+    tileGIDLabel.string = [NSString stringWithFormat:@"Tile GID: %i", tileGID];
 }
+
+-(void)setCover:(NSInteger)cover {
+    coverLabel.string = [NSString stringWithFormat:@"Cover: %i", cover];
+}
+
+-(void)setDieRoll:(NSInteger)dieRoll {
+    dieRollLabel.string = [NSString stringWithFormat:@"Die Roll: %i", dieRoll];
+}
+
+-(void)setResult:(NSString *)resultString {
+    resultLabel.string = resultString;
+}
+
+
 
 -(void)update:(ccTime)dt {
     totalTime += dt;
@@ -343,17 +170,5 @@
     }
 }
 
--(void)draw {
-    
-    if([linePoints count] > 0) {
-        //NSLog(@"%i", [linePoints count]);
-        CGPoint start = CGPointFromString([linePoints objectAtIndex:0]);
-        CGPoint end = CGPointFromString([linePoints objectAtIndex:1]);
-        //NSLog(@"(%f,%f) to (%f,%f)", start.x, start.y, end.x, end.y);
-        ccDrawLine(start, end);
-    }
-    [super draw];
-    
-}
 
 @end

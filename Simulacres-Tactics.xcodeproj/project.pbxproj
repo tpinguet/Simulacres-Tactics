@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		E404DA3A16ADBF740030C399 /* hexmap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E404DA3816ADBF740030C399 /* hexmap3.tmx */; };
 		E404DA3B16ADBF740030C399 /* hextiles.png in Resources */ = {isa = PBXBuildFile; fileRef = E404DA3916ADBF740030C399 /* hextiles.png */; };
+		E415406F16B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E415406816B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist */; };
+		E415407016B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E415406916B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png */; };
+		E415407116B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E415406A16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist */; };
+		E415407216B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = E415406B16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.png */; };
+		E415407316B4CDA300C55DC9 /* counters-test_UntitledSheet.plist in Resources */ = {isa = PBXBuildFile; fileRef = E415406C16B4CDA300C55DC9 /* counters-test_UntitledSheet.plist */; };
+		E415407416B4CDA300C55DC9 /* counters-test_UntitledSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = E415406D16B4CDA300C55DC9 /* counters-test_UntitledSheet.png */; };
+		E415407516B4CDA300C55DC9 /* counters-test.pshs in Resources */ = {isa = PBXBuildFile; fileRef = E415406E16B4CDA300C55DC9 /* counters-test.pshs */; };
 		E43BADB316AB6064003492D8 /* hexmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E43BADB216AB6064003492D8 /* hexmap.tmx */; };
 		E43BAEAE16AB6142003492D8 /* hexa-tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = E43BAEAD16AB6142003492D8 /* hexa-tiles.png */; };
 		E4414B6C16ACCB2E00096DFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4E1E61B169617CD00D58BF3 /* Foundation.framework */; };
@@ -265,6 +272,13 @@
 /* Begin PBXFileReference section */
 		E404DA3816ADBF740030C399 /* hexmap3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hexmap3.tmx; path = Resources/hexmap3.tmx; sourceTree = "<group>"; };
 		E404DA3916ADBF740030C399 /* hextiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hextiles.png; path = Resources/hextiles.png; sourceTree = "<group>"; };
+		E415406816B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "counters-test_UntitledSheet-hd.plist"; path = "Resources/counters-test_UntitledSheet-hd.plist"; sourceTree = "<group>"; };
+		E415406916B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "counters-test_UntitledSheet-hd.png"; path = "Resources/counters-test_UntitledSheet-hd.png"; sourceTree = "<group>"; };
+		E415406A16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "counters-test_UntitledSheet-ipadhd.plist"; path = "Resources/counters-test_UntitledSheet-ipadhd.plist"; sourceTree = "<group>"; };
+		E415406B16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "counters-test_UntitledSheet-ipadhd.png"; path = "Resources/counters-test_UntitledSheet-ipadhd.png"; sourceTree = "<group>"; };
+		E415406C16B4CDA300C55DC9 /* counters-test_UntitledSheet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "counters-test_UntitledSheet.plist"; path = "Resources/counters-test_UntitledSheet.plist"; sourceTree = "<group>"; };
+		E415406D16B4CDA300C55DC9 /* counters-test_UntitledSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "counters-test_UntitledSheet.png"; path = "Resources/counters-test_UntitledSheet.png"; sourceTree = "<group>"; };
+		E415406E16B4CDA300C55DC9 /* counters-test.pshs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "counters-test.pshs"; path = "Resources/counters-test.pshs"; sourceTree = "<group>"; };
 		E43BADB216AB6064003492D8 /* hexmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hexmap.tmx; path = Resources/hexmap.tmx; sourceTree = "<group>"; };
 		E43BAEAD16AB6142003492D8 /* hexa-tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hexa-tiles.png"; path = "Resources/hexa-tiles.png"; sourceTree = "<group>"; };
 		E4414B6B16ACCB2E00096DFF /* libcocos2d-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocos2d-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1404,6 +1418,13 @@
 		E4E1E622169617CD00D58BF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E415406816B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist */,
+				E415406916B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png */,
+				E415406A16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist */,
+				E415406B16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.png */,
+				E415406C16B4CDA300C55DC9 /* counters-test_UntitledSheet.plist */,
+				E415406D16B4CDA300C55DC9 /* counters-test_UntitledSheet.png */,
+				E415406E16B4CDA300C55DC9 /* counters-test.pshs */,
 				E404DA3816ADBF740030C399 /* hexmap3.tmx */,
 				E404DA3916ADBF740030C399 /* hextiles.png */,
 				E4414D4616ACEAC500096DFF /* hexmap2.tmx */,
@@ -1742,6 +1763,13 @@
 				E4414D4716ACEAC500096DFF /* hexmap2.tmx in Resources */,
 				E404DA3A16ADBF740030C399 /* hexmap3.tmx in Resources */,
 				E404DA3B16ADBF740030C399 /* hextiles.png in Resources */,
+				E415406F16B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist in Resources */,
+				E415407016B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png in Resources */,
+				E415407116B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist in Resources */,
+				E415407216B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.png in Resources */,
+				E415407316B4CDA300C55DC9 /* counters-test_UntitledSheet.plist in Resources */,
+				E415407416B4CDA300C55DC9 /* counters-test_UntitledSheet.png in Resources */,
+				E415407516B4CDA300C55DC9 /* counters-test.pshs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
