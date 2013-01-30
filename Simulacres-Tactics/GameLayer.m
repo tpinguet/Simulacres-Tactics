@@ -25,6 +25,7 @@
     CCLabelTTF *dieRollLabel;
     CCLabelTTF *resultLabel;
     CCLabelTTF *tileGIDLabel;
+    CCLabelTTF *distanceLabel;
     float totalTime;
     BOOL firstTap;
     CGPoint hex0;
@@ -109,6 +110,7 @@
     [self setTileGID:[controller tileGIDAtHex:hexTapped]];
     NSInteger cover = [controller coverAtHex:hexTapped];
     [self setCover:cover];
+    [self setCover:[controller obstacleTileGIDAtGex:hexTapped]];
     NSInteger dieRoll = [controller roll1d6];
     [self setDieRoll:dieRoll];
     if( dieRoll-cover >= 5) {
@@ -130,12 +132,10 @@
         hex1 = hexTapped;
         NSMutableArray *tiles = [controller hexesInLineOfSightFromHex:hex0 toHex:hex1];
         for (id hexLocation in tiles ) {
-            CGPoint temp = [hexLocation CGPointValue];
-            NSLog(@"tile at location: (%f, %f)\n",  temp.x, temp.y);
             tile = [layer tileAt:[hexLocation CGPointValue]];
             [tile setColor:ccc3(128, 128, 128)];
         }
-        NSLog(@"Distance between the two tiles is: %i\n", [controller distanceFromHex:hex0 toHex:hex1]);
+        [self setDistance:[controller distanceFromHex:hex0 toHex:hex1]];
         firstTap = YES;
     }
 }
@@ -150,6 +150,10 @@
 
 -(void)setDieRoll:(NSInteger)dieRoll {
     dieRollLabel.string = [NSString stringWithFormat:@"Die Roll: %i", dieRoll];
+}
+
+-(void)setDistance:(NSInteger)distance {
+    distanceLabel.string = [NSString stringWithFormat:@"Distance: %i", distance];
 }
 
 -(void)setResult:(NSString *)resultString {

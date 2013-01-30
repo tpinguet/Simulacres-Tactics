@@ -75,6 +75,36 @@
 
 
 #pragma hex tiled map methos
+-(CGPoint)centerPointOnDisplayForHex:(CGPoint)hex {
+    CCTMXTiledMap *hexMap = gameLayer.hexMap;
+    CGSize mapSize = hexMap.mapSize;
+    CGSize hexSize = hexMap.tileSize;
+    CGFloat s = 0.75*hexSize.width;
+    float scale = hexMap.scale;
+    float circleRadius = hexSize.width * 0.5 * 0.75 * scale;
+    CGPoint mapPixelPosition = hexMap.position;
+    CCTMXLayer *layer = [hexMap layerNamed:@"terrain"];
+    
+    int x = hex.x;
+    int y = hex.y;
+    
+    BOOL isOddColumn = NO;
+    if (x % 2 == 0) {
+        isOddColumn = NO;
+    } else {
+        isOddColumn = YES;
+    }
+    
+    float YPos = hexSize.height*((mapSize.height-1-y)+0.5)*scale+mapPixelPosition.y;
+    if (isOddColumn) {
+        YPos -= hexSize.height * 0.5 * scale;
+    }
+    float XPos = (s*x+hexSize.width*0.5)*scale+mapPixelPosition.x;
+    
+    return CGPointMake(XPos, YPos);
+}
+
+
 -(CGPoint)hexAtLocation:(CGPoint)location {
     
     CCTMXTiledMap *hexMap = gameLayer.hexMap;
@@ -145,7 +175,45 @@
 }
 
 -(NSInteger)distanceFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1 {
-    return [[self hexesInLineOfSightFromHex:hex0 toHex:hex1] count]-1;
+    int x0 = hex0.x;
+    int y0 = hex0.y;
+    int x1 = hex1.x;
+    int y1 = hex1.y;
+
+    //if same hex return 0
+    if (CGPointEqualToPoint(hex0, hex1)) {
+        return 0;
+    }
+    //simple check first - if hexes are on same column or same line
+    if( x0 == x1 ) {
+        return abs(y1-y0);
+    }
+    if ( y0 == y1 ) {
+        return abs(x1-x0);
+    }
+    
+    //final way to figure out distance
+    if (x0 > x1) { //flip hex0 and hex1 for simplicity of calculations, where hex0 is always smallest x
+        x0 = hex1.x;
+        y0 = hex1.y;
+        x1 = hex0.x;
+        y1 = hex0.y;
+    }
+     int dx, dy;
+    //see http://3dmdesign.com/development/hexmap-coordinates-the-easy-way for reference
+    dx = x1-x0; //easy enough to figure out
+    //now we need to figure out the distance along the "y-axis" which is the referred diagonal
+    int x = x1;
+    int y = y1;
+    while (x>x0) {
+        if (x % 2 == 0) {
+            //even column
+            y = y - 1;
+        }
+        x = x-1;
+    }
+    dy = y-y0;
+    return max(abs(dx), max(abs(dy), abs(dy+dx)));
 }
 
 
@@ -230,6 +298,12 @@
 -(NSInteger)tileGIDAtHex:(CGPoint)hex {
     CCTMXTiledMap *hexMap = gameLayer.hexMap;
     CCTMXLayer *layer = [hexMap layerNamed:@"terrain"];
+    return [layer tileGIDAt:hex];
+}
+
+-(NSInteger)obstacleTileGIDAtGex:(CGPoint)hex {
+    CCTMXTiledMap *hexMap = gameLayer.hexMap;
+    CCTMXLayer *layer = [hexMap layerNamed:@"obstacle"];
     return [layer tileGIDAt:hex];
 }
 

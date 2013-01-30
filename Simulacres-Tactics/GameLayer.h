@@ -21,6 +21,7 @@
 -(void)setTileGID:(NSInteger)tileGID;
 -(void)setCover:(NSInteger)cover;
 -(void)setDieRoll:(NSInteger)dieRoll;
+-(void)setDistance:(NSInteger)distance;
 -(void)setResult:(NSString *)resultString;
 
 @end

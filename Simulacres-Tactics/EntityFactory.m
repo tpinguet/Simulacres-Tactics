@@ -30,7 +30,7 @@
 
 -(Entity *)createGameBoard {
     
-    CCTMXTiledMap *tiledMap = [CCTMXTiledMap tiledMapWithTMXFile:@"hexmap3.tmx"];
+    CCTMXTiledMap *tiledMap = [CCTMXTiledMap tiledMapWithTMXFile:@"hexmap4.tmx"];
     [tiledMap setIsTouchEnabled:YES];
     UIGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:[GameController sharedGameController].gameLayer action:@selector(handlePanGesture:)];
     panGestureRecognizer.delegate = [GameController sharedGameController].gameLayer;

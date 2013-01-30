@@ -26,12 +26,14 @@
 -(void)closeGame;
 
 //methods for dealing with hexes and board in general
+-(CGPoint)centerPointOnDisplayForHex:(CGPoint)hex;
 -(CGPoint)hexAtLocation:(CGPoint)location;
 -(BOOL)point:(CGPoint)location InsideHex:(CGPoint)hex;
 -(NSMutableArray *)hexesInLineOfSightFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1;
 -(NSInteger)distanceFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1;
 -(BOOL)lineOfSightFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1;
 -(NSInteger)tileGIDAtHex:(CGPoint)hex;
+-(NSInteger)obstacleTileGIDAtGex:(CGPoint)hex;
 -(NSInteger)coverAtHex:(CGPoint)hex;
 -(void)clearBoardStatus;
 
