@@ -35,6 +35,9 @@
 -(NSInteger)tileGIDAtHex:(CGPoint)hex;
 -(NSInteger)obstacleTileGIDAtGex:(CGPoint)hex;
 -(NSInteger)coverAtHex:(CGPoint)hex;
+-(NSInteger)heightAtHex:(CGPoint)hex;
+-(void)highlightAllVisibleHexesFromHex:(CGPoint)hex;
+-(void)highlightAllHexesWithinDistance:(NSInteger)distance fromHex:(CGPoint)hex;
 -(void)clearBoardStatus;
 
 //game mechanics methods

@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
-<map version="1.0" orientation="hexagonal" width="8" height="8" tilewidth="175" tileheight="150">
- <tileset name="hextiles" firstgid="1" tilewidth="175" tileheight="150">
-  <image source="hexa-tiles.png" trans="ff00ff"/>
+<map version="1.0" orientation="hexagonal" width="16" height="10" tilewidth="80" tileheight="70">
+ <tileset name="hextiles" firstgid="1" tilewidth="80" tileheight="70">
+  <image source="hexmap-tiles.png" trans="ff00ff"/>
+  <tile id="0">
+   <properties>
+    <property name="height" value="0"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="height" value="0"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="height" value="0"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="height" value="0"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="height" value="1"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="height" value="0"/>
+   </properties>
+  </tile>
  </tileset>
- <layer name="Layer 0" width="8" height="8">
+ <layer name="terrain" width="16" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAGNiYGBgGsEYANJOgNUAAQAA
+   H4sIAAAAAAAAAKWQUQoAIAhDxfT+V47AYMgso48RxN5acxFxIgWNkBbeEz9S1gvLeJahhFuy4I3I48x+1H6f9TK4Qz9m4m5V/9zh9PfuZr/bd3rf+C47AWE33EqAAgAA
+  </data>
+ </layer>
+ <layer name="obstacle" width="16" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAGNjYGBgQ8OEALp6YvVhM4McgE0fuWZRAvDZSUiOXP9TEubY9JNqDjXjHoQBBEPG9IACAAA=
   </data>
  </layer>
 </map>

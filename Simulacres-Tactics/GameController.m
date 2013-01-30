@@ -292,7 +292,78 @@
 }
 
 -(BOOL)lineOfSightFromHex:(CGPoint)hex0 toHex:(CGPoint)hex1 {
+    //first if they are adjacent hexes there is automatic LOS
+    if( [self distanceFromHex:hex0 toHex:hex1] == 1 ) {
+        return YES;
+    }
+    //if not then it's more complicated
+    //find all hexes on LOS
+    //we're going to make use of the fact that LOS is reversible :-)
+    NSMutableArray *hexes = [self hexesInLineOfSightFromHex:hex0 toHex:hex1];
+    //height of starting and ending hexes
+    int height0 = [self heightAtHex:hex0];
+    int height1 = [self heightAtHex:hex1];
+    //checks differ depending on height
+    //first check if both positions are elevated; only two elevations considered here
+    //LOS is only bloked if obstacle at same elevation in between
+    if (height0 == 1 && height1 == 1) {
+        for (int i=0; i < [hexes count]; i++) {
+            if( i>0 && i<[hexes count]-1) { //ignore first and last hexes
+                CGPoint hex = [[hexes objectAtIndex:i] CGPointValue];
+                if( [self obstacleTileGIDAtGex:hex] > 0 && [self heightAtHex:hex] == 1 ) {
+                    return FALSE;
+                }
+            }
+        }
+        return YES;
+    }
+    //if starting hex or ending hex
+    //obstacle on same elevation will block LOS
+    //edge of a plateau will block LOS
+    //shadow from obstacle right before ending hex or right after starting hex
+    if (height0 == 1 || height1 == 1) {
+        if( height1 == 1) {
+            //invert starting and ending hexes
+            hexes = [self hexesInLineOfSightFromHex:hex1 toHex:hex0];
+        }
+        for (int i=0; i < [hexes count]; i++) {
+            if( i>0 && i<[hexes count]-1) { //ignore first and last hexes
+                CGPoint hex = [[hexes objectAtIndex:i] CGPointValue];
+                if( [self heightAtHex:hex] == 1 && i == 1 ) {
+                    //LOS blocked if we are back from the edge of a plateau
+                    return FALSE;
+                }
+                if( [self obstacleTileGIDAtGex:hex] > 0 && [self heightAtHex:hex] == 1 ) {
+                    return FALSE;
+                }
+                if( [self obstacleTileGIDAtGex:hex] > 0 && i == [hexes count]-2 ) {
+                    //shadow effect
+                    return FALSE;
+                }
+            }
+        }
+        return YES;
+    }
+    //if both hexes are not elevated
+    //LOS is bloked by any obstacle or elevation
+    for (int i=0; i < [hexes count]; i++) {
+        if( i>0 && i<[hexes count]-1) { //ignore first and last hexes
+            CGPoint hex = [[hexes objectAtIndex:i] CGPointValue];
+            if( [self heightAtHex:hex] == 1 || [self obstacleTileGIDAtGex:hex] > 0 ) {
+                return FALSE;
+            }
+        }
+    }
     return YES;
+}
+
+-(NSInteger)heightAtHex:(CGPoint)hex {
+    CCTMXTiledMap *hexMap = gameLayer.hexMap;
+    CCTMXLayer *layer = [hexMap layerNamed:@"terrain"];
+    int tileGID = [layer tileGIDAt:hex];
+    NSDictionary *properties = [hexMap propertiesForGID:tileGID];
+    NSString *height = [properties valueForKey:@"height"];
+    return [height integerValue];
 }
 
 -(NSInteger)tileGIDAtHex:(CGPoint)hex {
@@ -340,6 +411,45 @@
     }
 }
 
+-(void)highlightAllVisibleHexesFromHex:(CGPoint)hex {
+    CCTMXTiledMap *hexMap = gameLayer.hexMap;
+    CGSize mapSize = hexMap.mapSize;
+    CGSize hexSize = hexMap.tileSize;
+    CGFloat scale = hexMap.scale;
+    CGFloat radius = hexSize.width/2;
+    CGFloat s = 0.75*hexSize.width;
+    CGPoint mapPixelPosition = hexMap.position;
+    CCTMXLayer *layer = [hexMap layerNamed:@"terrain"];
+    
+    for (int i = 0; i < mapSize.width; i++) {
+        for (int j = 0; j < mapSize.height; j++) {
+            CCSprite *tile = [layer tileAt:CGPointMake(i, j)];
+            if( [self lineOfSightFromHex:hex toHex:CGPointMake(i, j)]) {
+                [tile setColor:ccc3(128, 128, 128)];
+            }
+        }
+    }
+}
+
+-(void)highlightAllHexesWithinDistance:(NSInteger)distance fromHex:(CGPoint)hex {
+    CCTMXTiledMap *hexMap = gameLayer.hexMap;
+    CGSize mapSize = hexMap.mapSize;
+    CGSize hexSize = hexMap.tileSize;
+    CGFloat scale = hexMap.scale;
+    CGFloat radius = hexSize.width/2;
+    CGFloat s = 0.75*hexSize.width;
+    CGPoint mapPixelPosition = hexMap.position;
+    CCTMXLayer *layer = [hexMap layerNamed:@"terrain"];
+    
+    for (int i = 0; i < mapSize.width; i++) {
+        for (int j = 0; j < mapSize.height; j++) {
+            CCSprite *tile = [layer tileAt:CGPointMake(i, j)];
+            if( [self distanceFromHex:hex toHex:CGPointMake(i, j)] <= distance ) {
+                [tile setColor:ccc3(64, 64, 64)];
+            }
+        }
+    }
+}
 
 #pragma Game mechanics
 -(NSInteger)roll1d6 {

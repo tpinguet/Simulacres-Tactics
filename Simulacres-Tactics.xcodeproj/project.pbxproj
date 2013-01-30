@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E404DA3A16ADBF740030C399 /* hexmap3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E404DA3816ADBF740030C399 /* hexmap3.tmx */; };
-		E404DA3B16ADBF740030C399 /* hextiles.png in Resources */ = {isa = PBXBuildFile; fileRef = E404DA3916ADBF740030C399 /* hextiles.png */; };
 		E415406F16B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E415406816B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist */; };
 		E415407016B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = E415406916B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png */; };
 		E415407116B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = E415406A16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist */; };
@@ -156,9 +154,7 @@
 		E4414D4316ACCCCD00096DFF /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = E4414D2716ACCCCD00096DFF /* unzip.c */; };
 		E4414D4416ACCCCD00096DFF /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = E4414D2916ACCCCD00096DFF /* zip.c */; };
 		E4414D4516ACCCCD00096DFF /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = E4414D2C16ACCCCD00096DFF /* SSZipArchive.m */; };
-		E4414D4716ACEAC500096DFF /* hexmap2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E4414D4616ACEAC500096DFF /* hexmap2.tmx */; };
-		E442A15216B78E0900990C1B /* hexmap4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = E442A15016B78E0900990C1B /* hexmap4.tmx */; };
-		E442A15316B78E0900990C1B /* hextiles2.png in Resources */ = {isa = PBXBuildFile; fileRef = E442A15116B78E0900990C1B /* hextiles2.png */; };
+		E44D91EE16B8A3CE004D3380 /* hexmap-tiles.png in Resources */ = {isa = PBXBuildFile; fileRef = E44D91ED16B8A3CE004D3380 /* hexmap-tiles.png */; };
 		E4501B1E16976391005D2EB3 /* GameStatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B1D16976391005D2EB3 /* GameStatusManager.m */; };
 		E4501B2216976566005D2EB3 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B2116976566005D2EB3 /* GameController.m */; };
 		E4501B3D16976704005D2EB3 /* ccbDefaultImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4501B2516976704005D2EB3 /* ccbDefaultImages.plist */; };
@@ -272,8 +268,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E404DA3816ADBF740030C399 /* hexmap3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hexmap3.tmx; path = Resources/hexmap3.tmx; sourceTree = "<group>"; };
-		E404DA3916ADBF740030C399 /* hextiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hextiles.png; path = Resources/hextiles.png; sourceTree = "<group>"; };
 		E415406816B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "counters-test_UntitledSheet-hd.plist"; path = "Resources/counters-test_UntitledSheet-hd.plist"; sourceTree = "<group>"; };
 		E415406916B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "counters-test_UntitledSheet-hd.png"; path = "Resources/counters-test_UntitledSheet-hd.png"; sourceTree = "<group>"; };
 		E415406A16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "counters-test_UntitledSheet-ipadhd.plist"; path = "Resources/counters-test_UntitledSheet-ipadhd.plist"; sourceTree = "<group>"; };
@@ -585,9 +579,7 @@
 		E4414D2A16ACCCCD00096DFF /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		E4414D2B16ACCCCD00096DFF /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		E4414D2C16ACCCCD00096DFF /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
-		E4414D4616ACEAC500096DFF /* hexmap2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hexmap2.tmx; path = Resources/hexmap2.tmx; sourceTree = "<group>"; };
-		E442A15016B78E0900990C1B /* hexmap4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = hexmap4.tmx; path = Resources/hexmap4.tmx; sourceTree = "<group>"; };
-		E442A15116B78E0900990C1B /* hextiles2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hextiles2.png; path = Resources/hextiles2.png; sourceTree = "<group>"; };
+		E44D91ED16B8A3CE004D3380 /* hexmap-tiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hexmap-tiles.png"; path = "Resources/hexmap-tiles.png"; sourceTree = "<group>"; };
 		E4501B1C16976391005D2EB3 /* GameStatusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatusManager.h; sourceTree = "<group>"; };
 		E4501B1D16976391005D2EB3 /* GameStatusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatusManager.m; sourceTree = "<group>"; };
 		E4501B2016976566005D2EB3 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
@@ -1422,8 +1414,7 @@
 		E4E1E622169617CD00D58BF3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E442A15016B78E0900990C1B /* hexmap4.tmx */,
-				E442A15116B78E0900990C1B /* hextiles2.png */,
+				E44D91ED16B8A3CE004D3380 /* hexmap-tiles.png */,
 				E415406816B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist */,
 				E415406916B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png */,
 				E415406A16B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist */,
@@ -1431,9 +1422,6 @@
 				E415406C16B4CDA300C55DC9 /* counters-test_UntitledSheet.plist */,
 				E415406D16B4CDA300C55DC9 /* counters-test_UntitledSheet.png */,
 				E415406E16B4CDA300C55DC9 /* counters-test.pshs */,
-				E404DA3816ADBF740030C399 /* hexmap3.tmx */,
-				E404DA3916ADBF740030C399 /* hextiles.png */,
-				E4414D4616ACEAC500096DFF /* hexmap2.tmx */,
 				E43BAEAD16AB6142003492D8 /* hexa-tiles.png */,
 				E43BADB216AB6064003492D8 /* hexmap.tmx */,
 				E4501B5316976D11005D2EB3 /* map_test-ipadhd.png */,
@@ -1766,9 +1754,6 @@
 				E4501B5616976D11005D2EB3 /* map_test.png in Resources */,
 				E43BADB316AB6064003492D8 /* hexmap.tmx in Resources */,
 				E43BAEAE16AB6142003492D8 /* hexa-tiles.png in Resources */,
-				E4414D4716ACEAC500096DFF /* hexmap2.tmx in Resources */,
-				E404DA3A16ADBF740030C399 /* hexmap3.tmx in Resources */,
-				E404DA3B16ADBF740030C399 /* hextiles.png in Resources */,
 				E415406F16B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.plist in Resources */,
 				E415407016B4CDA300C55DC9 /* counters-test_UntitledSheet-hd.png in Resources */,
 				E415407116B4CDA300C55DC9 /* counters-test_UntitledSheet-ipadhd.plist in Resources */,
@@ -1776,8 +1761,7 @@
 				E415407316B4CDA300C55DC9 /* counters-test_UntitledSheet.plist in Resources */,
 				E415407416B4CDA300C55DC9 /* counters-test_UntitledSheet.png in Resources */,
 				E415407516B4CDA300C55DC9 /* counters-test.pshs in Resources */,
-				E442A15216B78E0900990C1B /* hexmap4.tmx in Resources */,
-				E442A15316B78E0900990C1B /* hextiles2.png in Resources */,
+				E44D91EE16B8A3CE004D3380 /* hexmap-tiles.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

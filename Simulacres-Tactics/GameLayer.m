@@ -45,6 +45,7 @@
     controller.gameLayer = self;
     totalTime = 0;
     firstTap = YES;
+    [background setZOrder:-5];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"counters-test_UntitledSheet.plist"];
     //[self scheduleUpdate];
     [self setCover:0];
@@ -54,9 +55,8 @@
 }
 
 -(void)addMapRenderComponent:(CCTMXTiledMap *)map {
-    self.hexMap = map;
-    [self addChild:self.hexMap z:-1];
-    [background setZOrder:-5];
+    hexMap = map;
+    [self addChild:hexMap z:-1];
 }
 
 #pragma mark - GestureRecognizer delegate
@@ -126,6 +126,9 @@
         [tile setColor:ccc3(128, 128, 128)];
         hex0 = hexTapped;
         firstTap = FALSE;
+        [controller highlightAllVisibleHexesFromHex:hexTapped];
+        //[controller highlightAllHexesWithinDistance:4 fromHex:hexTapped];
+        [tile setColor:ccc3(200,200,200)];
     } else {
         CCSprite *tile = [layer tileAt:hexTapped];
         [tile setColor:ccc3(128, 128, 128)];
@@ -137,7 +140,9 @@
         }
         [self setDistance:[controller distanceFromHex:hex0 toHex:hex1]];
         firstTap = YES;
+        NSLog(@"line of sight %i",[controller lineOfSightFromHex:hex0 toHex:hex1]);
     }
+    
 }
 
 -(void)setTileGID:(NSInteger)tileGID {
