@@ -26,6 +26,8 @@
     CCLabelTTF *resultLabel;
     CCLabelTTF *tileGIDLabel;
     CCLabelTTF *distanceLabel;
+    BOOL drawLOS;
+    NSMutableArray *linePoints;
     float totalTime;
     BOOL firstTap;
     CGPoint hex0;
@@ -52,11 +54,19 @@
     [self setTileGID:10];
     [self setDieRoll:0];
     [self setResult:@"N/A"];
+    linePoints = [NSMutableArray array];
+    drawLOS = YES;
 }
 
 -(void)addMapRenderComponent:(CCTMXTiledMap *)map {
     hexMap = map;
     [self addChild:hexMap z:-1];
+}
+
+-(void)setLinePointsWithPointA:(CGPoint)pointA pointB:(CGPoint)pointB {
+    [linePoints removeAllObjects];
+    [linePoints addObject:NSStringFromCGPoint(pointA)];
+    [linePoints addObject:NSStringFromCGPoint(pointB)];
 }
 
 #pragma mark - GestureRecognizer delegate
@@ -105,7 +115,6 @@
     CCTMXLayer *layer = [hexMap layerNamed:@"terrain"];
     CGPoint location = [aTapGestureRecognizer locationInView:aTapGestureRecognizer.view];
     location.y = 768 - location.y;
-    
     CGPoint hexTapped = [controller hexAtLocation:location] ;
     [self setTileGID:[controller tileGIDAtHex:hexTapped]];
     NSInteger cover = [controller coverAtHex:hexTapped];
@@ -119,28 +128,51 @@
         [self setResult:@"Miss"];
     }
     
-    NSLog(@"Tile tapped is (%f, %f)", hexTapped.x, hexTapped.y);
-    if( firstTap == YES ) {
-        [controller clearBoardStatus];
-        CCSprite *tile = [layer tileAt:hexTapped];
-        [tile setColor:ccc3(128, 128, 128)];
-        hex0 = hexTapped;
-        firstTap = FALSE;
-        [controller highlightAllVisibleHexesFromHex:hexTapped];
-        //[controller highlightAllHexesWithinDistance:4 fromHex:hexTapped];
-        [tile setColor:ccc3(200,200,200)];
-    } else {
-        CCSprite *tile = [layer tileAt:hexTapped];
-        [tile setColor:ccc3(128, 128, 128)];
-        hex1 = hexTapped;
-        NSMutableArray *tiles = [controller hexesInLineOfSightFromHex:hex0 toHex:hex1];
-        for (id hexLocation in tiles ) {
-            tile = [layer tileAt:[hexLocation CGPointValue]];
+    if( drawLOS == FALSE ) {
+        if( firstTap == YES ) {
+            [controller clearBoardStatus];
+            CCSprite *tile = [layer tileAt:hexTapped];
             [tile setColor:ccc3(128, 128, 128)];
+            hex0 = hexTapped;
+            firstTap = FALSE;
+            [controller highlightAllVisibleHexesFromHex:hexTapped];
+            //[controller highlightAllHexesWithinDistance:4 fromHex:hexTapped];
+            [tile setColor:ccc3(200,200,200)];
+        } else {
+            CCSprite *tile = [layer tileAt:hexTapped];
+            [tile setColor:ccc3(128, 128, 128)];
+            hex1 = hexTapped;
+            NSMutableArray *tiles = [controller hexesInLineOfSightFromHex:hex0 toHex:hex1];
+            for (id hexLocation in tiles ) {
+                tile = [layer tileAt:[hexLocation CGPointValue]];
+                [tile setColor:ccc3(128, 128, 128)];
+            }
+            [self setDistance:[controller distanceFromHex:hex0 toHex:hex1]];
+            firstTap = YES;
+            NSLog(@"line of sight %i",[controller lineOfSightFromHex:hex0 toHex:hex1]);
         }
-        [self setDistance:[controller distanceFromHex:hex0 toHex:hex1]];
-        firstTap = YES;
-        NSLog(@"line of sight %i",[controller lineOfSightFromHex:hex0 toHex:hex1]);
+    } else {
+        if (firstTap == YES) {
+            [controller clearBoardStatus];
+            CCSprite *tile = [layer tileAt:hexTapped];
+            [tile setColor:ccc3(128, 128, 128)];
+            hex0 = hexTapped;
+            firstTap = FALSE;
+            [linePoints removeAllObjects];
+        } else {
+            CCSprite *tile = [layer tileAt:hexTapped];
+            [tile setColor:ccc3(128, 128, 128)];
+            hex1 = hexTapped;
+            NSMutableArray *tiles = [controller hexesInLineOfSightFromHex:hex0 toHex:hex1];
+            for (id hexLocation in tiles ) {
+                tile = [layer tileAt:[hexLocation CGPointValue]];
+                [tile setColor:ccc3(128, 128, 128)];
+            }
+            [self setDistance:[controller distanceFromHex:hex0 toHex:hex1]];
+            [self setLinePointsWithPointA:[controller centerPointOnDisplayForHex:hex0] pointB:[controller centerPointOnDisplayForHex:hex1]];
+            firstTap = YES;
+        }
+        
     }
     
 }
@@ -165,7 +197,14 @@
     resultLabel.string = resultString;
 }
 
-
+-(void)draw {
+    [super draw];
+    if ([linePoints count] > 0) {
+        CGPoint start = CGPointFromString([linePoints objectAtIndex:0]);
+        CGPoint end = CGPointFromString([linePoints objectAtIndex:1]);
+        ccDrawLine(start, end);
+    }
+}
 
 -(void)update:(ccTime)dt {
     totalTime += dt;

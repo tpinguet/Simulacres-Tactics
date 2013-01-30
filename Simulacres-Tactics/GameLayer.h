@@ -16,6 +16,7 @@
 @property (strong) CCTMXTiledMap *hexMap;
 
 -(void)addMapRenderComponent:(CCTMXTiledMap *)map;
+-(void)setLinePointsWithPointA:(CGPoint)pointA pointB:(CGPoint)pointB;
 
 //adjust displayed elements
 -(void)setTileGID:(NSInteger)tileGID;
@@ -23,5 +24,6 @@
 -(void)setDieRoll:(NSInteger)dieRoll;
 -(void)setDistance:(NSInteger)distance;
 -(void)setResult:(NSString *)resultString;
+
 
 @end
