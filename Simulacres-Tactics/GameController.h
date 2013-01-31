@@ -40,6 +40,9 @@
 -(void)highlightAllHexesWithinDistance:(NSInteger)distance fromHex:(CGPoint)hex;
 -(void)clearBoardStatus;
 
+//methods for dealing with Units
+-(Entity *)unitTapped:(CCNode *)node;
+
 //game mechanics methods
 -(NSInteger)roll1d6;
 

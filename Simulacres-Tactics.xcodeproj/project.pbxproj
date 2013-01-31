@@ -185,8 +185,6 @@
 		E4501B6E16977EDF005D2EB3 /* Component.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B6D16977EDF005D2EB3 /* Component.m */; };
 		E4501B7116977EF5005D2EB3 /* System.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7016977EF5005D2EB3 /* System.m */; };
 		E4501B7816978000005D2EB3 /* RenderComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7716978000005D2EB3 /* RenderComponent.m */; };
-		E4501B7C1697808D005D2EB3 /* StatComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7B1697808D005D2EB3 /* StatComponent.m */; };
-		E4501B7F169780AF005D2EB3 /* CharacterStat.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B7E169780AF005D2EB3 /* CharacterStat.m */; };
 		E4501B831697ADA5005D2EB3 /* BoardComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B821697ADA5005D2EB3 /* BoardComponent.m */; };
 		E4501B8B1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = E4501B8A1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m */; };
 		E4A95BE8169621F000E29C68 /* MainMenuLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A95BE7169621F000E29C68 /* MainMenuLayer.m */; };
@@ -242,6 +240,8 @@
 		E4F9C3EF16975E7D006EFB95 /* clickme.png in Resources */ = {isa = PBXBuildFile; fileRef = E4F9C3D416975E7D006EFB95 /* clickme.png */; };
 		E4F9C3F016975E7D006EFB95 /* clickme-down.png in Resources */ = {isa = PBXBuildFile; fileRef = E4F9C3D616975E7D006EFB95 /* clickme-down.png */; };
 		E4F9C3F116975E7D006EFB95 /* clickme.png in Resources */ = {isa = PBXBuildFile; fileRef = E4F9C3D716975E7D006EFB95 /* clickme.png */; };
+		E4FA7C8416B9E58E003997C8 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA7C8316B9E58E003997C8 /* Unit.m */; };
+		E4FA7C8716B9E5F0003997C8 /* UnitComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = E4FA7C8616B9E5F0003997C8 /* UnitComponent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -619,10 +619,6 @@
 		E4501B7016977EF5005D2EB3 /* System.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = System.m; sourceTree = "<group>"; };
 		E4501B7616978000005D2EB3 /* RenderComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderComponent.h; sourceTree = "<group>"; };
 		E4501B7716978000005D2EB3 /* RenderComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderComponent.m; sourceTree = "<group>"; };
-		E4501B7A1697808D005D2EB3 /* StatComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatComponent.h; sourceTree = "<group>"; };
-		E4501B7B1697808D005D2EB3 /* StatComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatComponent.m; sourceTree = "<group>"; };
-		E4501B7D169780AF005D2EB3 /* CharacterStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterStat.h; sourceTree = "<group>"; };
-		E4501B7E169780AF005D2EB3 /* CharacterStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterStat.m; sourceTree = "<group>"; };
 		E4501B811697ADA4005D2EB3 /* BoardComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardComponent.h; sourceTree = "<group>"; };
 		E4501B821697ADA5005D2EB3 /* BoardComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardComponent.m; sourceTree = "<group>"; };
 		E4501B891697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+SFGestureRecognizers.h"; sourceTree = "<group>"; };
@@ -692,6 +688,11 @@
 		E4F9C3D416975E7D006EFB95 /* clickme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clickme.png; sourceTree = "<group>"; };
 		E4F9C3D616975E7D006EFB95 /* clickme-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clickme-down.png"; sourceTree = "<group>"; };
 		E4F9C3D716975E7D006EFB95 /* clickme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clickme.png; sourceTree = "<group>"; };
+		E4FA7C8116B9E3E2003997C8 /* UnitDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitDefinition.h; sourceTree = "<group>"; };
+		E4FA7C8216B9E58E003997C8 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		E4FA7C8316B9E58E003997C8 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
+		E4FA7C8516B9E5F0003997C8 /* UnitComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitComponent.h; sourceTree = "<group>"; };
+		E4FA7C8616B9E5F0003997C8 /* UnitComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitComponent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1324,10 +1325,10 @@
 				E4501B6D16977EDF005D2EB3 /* Component.m */,
 				E4501B7616978000005D2EB3 /* RenderComponent.h */,
 				E4501B7716978000005D2EB3 /* RenderComponent.m */,
-				E4501B7A1697808D005D2EB3 /* StatComponent.h */,
-				E4501B7B1697808D005D2EB3 /* StatComponent.m */,
 				E4501B811697ADA4005D2EB3 /* BoardComponent.h */,
 				E4501B821697ADA5005D2EB3 /* BoardComponent.m */,
+				E4FA7C8516B9E5F0003997C8 /* UnitComponent.h */,
+				E4FA7C8616B9E5F0003997C8 /* UnitComponent.m */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -1519,8 +1520,9 @@
 		E4E1E7BA1696185000D58BF3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E4501B7D169780AF005D2EB3 /* CharacterStat.h */,
-				E4501B7E169780AF005D2EB3 /* CharacterStat.m */,
+				E4FA7C8116B9E3E2003997C8 /* UnitDefinition.h */,
+				E4FA7C8216B9E58E003997C8 /* Unit.h */,
+				E4FA7C8316B9E58E003997C8 /* Unit.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1934,10 +1936,10 @@
 				E4501B6E16977EDF005D2EB3 /* Component.m in Sources */,
 				E4501B7116977EF5005D2EB3 /* System.m in Sources */,
 				E4501B7816978000005D2EB3 /* RenderComponent.m in Sources */,
-				E4501B7C1697808D005D2EB3 /* StatComponent.m in Sources */,
-				E4501B7F169780AF005D2EB3 /* CharacterStat.m in Sources */,
 				E4501B831697ADA5005D2EB3 /* BoardComponent.m in Sources */,
 				E4501B8B1697B7E9005D2EB3 /* CCNode+SFGestureRecognizers.m in Sources */,
+				E4FA7C8416B9E58E003997C8 /* Unit.m in Sources */,
+				E4FA7C8716B9E5F0003997C8 /* UnitComponent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

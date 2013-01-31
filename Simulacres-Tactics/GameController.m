@@ -45,9 +45,9 @@
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[CCBReader sceneWithNodeGraphFromFile:@"GameScene.ccbi"]]];
     
     //Create the entities
-    Entity *gameBoard = [self.entityFactory createGameBoard];
-    Entity *counter1 = [self.entityFactory createCounter1];
-    Entity *counter2 = [self.entityFactory createCounter1];
+    Entity *gameBoard = [entityFactory createGameBoard];
+    Entity *unit1 = [entityFactory createUnitInfantry];
+    //Entity *unit2 = [self.entityFactory createUnitInfantry];
 
     //Place entities on the game scene
     //game board
@@ -56,10 +56,10 @@
     gameBoardRender.map.position = ccp(0,0);
     [self.gameLayer addMapRenderComponent:gameBoardRender.map];
     
-    //Entity counter1
-    //RenderComponent *counter1Render = counter1.render;
-    //counter1Render.sprite.position = ccp( winSize.width/2, winSize.height/2 );
-    //[self.gameLayer addChild:counter1Render.sprite];
+    //Entity infantry
+    RenderComponent *unit1Render = unit1.render;
+    unit1Render.sprite.position = [self centerPointOnDisplayForHex:CGPointMake(5, 8)];
+    [self.gameLayer addChild:unit1Render.sprite];
 }
 
 -(void)numberOfEntities {
@@ -449,6 +449,19 @@
             }
         }
     }
+}
+
+-(Entity *)unitTapped:(CCNode *)node {
+    NSArray *units = [entityManager getAllEntitiesPosessingComponentOfClass:[RenderComponent class]];
+    for( Entity *e in units ) {
+        RenderComponent *render = (RenderComponent *)[entityManager getComponentOfClass:[RenderComponent class] forEntity:e];
+        if ( render.isSprite ) {
+            if ( render.sprite == node) {
+                return e;
+            }
+        }
+    }
+    return nil;
 }
 
 #pragma Game mechanics

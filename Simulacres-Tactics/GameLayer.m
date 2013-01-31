@@ -9,9 +9,9 @@
 #import "GameLayer.h"
 #import "CCNode+SFGestureRecognizers.h"
 #import "CCBReader.h"
-#import "CharacterStat.h"
+#import "Unit.h"
 #import "RenderComponent.h"
-#import "StatComponent.h"
+#import "UnitComponent.h"
 #import "Entity.h"
 #import "EntityManager.h"
 #import "GameController.h"
@@ -177,6 +177,21 @@
     
 }
 
+
+- (void)handleUnitTapGestureRecognizer:(UITapGestureRecognizer*)aTapGestureRecognizer
+{
+    NSLog(@"Unit Tap gesture");
+    GameController *controller = [GameController sharedGameController];
+    CCNode *node = aTapGestureRecognizer.node;
+    [node setPosition:[controller centerPointOnDisplayForHex:CGPointMake(6, 5)]];
+    Entity *e = [controller unitTapped:node];
+    if( e != nil ) {
+        UnitComponent *unitComponent = (UnitComponent *)[controller.entityManager getComponentOfClass:[UnitComponent class] forEntity:e];
+        NSLog(@"strength points: %i", unitComponent.unit.strengthPoints);
+        
+    }
+}
+
 -(void)setTileGID:(NSInteger)tileGID {
     tileGIDLabel.string = [NSString stringWithFormat:@"Tile GID: %i", tileGID];
 }
@@ -212,9 +227,8 @@
     if( fmod(totalTime, 1.0) > 0.9 ) {
         GameController *controller = [GameController sharedGameController];
         //NSLog(@"Entity eid:%i", controller._eid);
-        [controller.entityFactory logAlive];
+        //[controller.entityFactory logAlive];
         //[controller._entityFactory numberOfEntities];
-        [controller.entityFactory createSimpleEntity];
     }
 }
 

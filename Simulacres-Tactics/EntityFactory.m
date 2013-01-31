@@ -12,10 +12,12 @@
 #import "GameLayer.h"
 #import "cocos2d.h"
 #import "RenderComponent.h"
-#import "StatComponent.h"
+#import "UnitComponent.h"
 #import "BoardComponent.h"
 #import "GameController.h"
-#import "CharacterStat.h"
+#import "Unit.h"
+#import "UnitDefinition.h"
+
 
 @implementation EntityFactory {
     EntityManager *_entityManager;
@@ -54,32 +56,20 @@
     return entity;
 }
 
--(Entity *)createCounter1 {
-    
+-(Entity *)createUnitInfantry {
+    NSLog(@"creating infantry unit");
     CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"counter1"];
     [sprite setIsTouchEnabled:YES];
-        
-    Entity *entity = [_entityManager createEntity];
-    [_entityManager addComponent:[[RenderComponent alloc] initWithSprite:sprite] toEntity:entity];
-     return entity;
-}
-
-
--(Entity *)createCounter2 {
-    
-    CCSprite *sprite = [CCSprite spriteWithSpriteFrameName:@"counter2"];
-    [sprite setIsTouchEnabled:YES];
+    [sprite setScale:1.5];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:[GameController sharedGameController].gameLayer action:@selector(handleUnitTapGestureRecognizer:)];
+    tapGestureRecognizer.delegate = [GameController sharedGameController].gameLayer;
+    [sprite addGestureRecognizer:tapGestureRecognizer];
     
     Entity *entity = [_entityManager createEntity];
     [_entityManager addComponent:[[RenderComponent alloc] initWithSprite:sprite] toEntity:entity];
-    return entity;
-}
-
--(Entity *)createSimpleEntity {
-    CharacterStat *stat = [[CharacterStat alloc] initWithBody:2 instinct:3 heart:3 mind:3 perception:2 action:2 desire:2 resistance:2 health:2 stamina:2 psychic:2 reign:@"a"];
-    Entity *entity = [_entityManager createEntity];
-    StatComponent *statComponent = [[StatComponent alloc] initWithStat:stat];
-    [_entityManager addComponent:statComponent toEntity:entity];
+    Unit *infantryUnit = [[Unit alloc] initWithStrengthPoints:4 experience:unitExperienceAverage type:unitInfantry name:@"2nd Platoon"];
+    NSLog(@"a");
+    [_entityManager addComponent:[[UnitComponent alloc] initWithUnit:infantryUnit] toEntity:entity];
     return entity;
 }
 
